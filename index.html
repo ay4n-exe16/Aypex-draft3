@@ -1,0 +1,3905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>AYPEX.CO | Build. Grow. Connect.</title>
+
+  <meta
+    name="description"
+    content="AYPEX.CO - Business Infrastructure & Growth. Founded by Ayan Sheikh."
+  >
+
+  <style>
+
+    /* =====================================================
+       CORE
+    ===================================================== */
+
+    :root {
+      --bg: #050b16;
+      --bg2: #07111f;
+      --card: rgba(17, 29, 45, 0.52);
+      --card2: rgba(12, 24, 39, 0.66);
+
+      --white: #f4f7fb;
+      --muted: #96a6bb;
+
+      --cyan: #55ddff;
+      --cyan-soft: rgba(85,221,255,.16);
+
+      --purple: #9675ff;
+      --purple-soft: rgba(150,117,255,.16);
+
+      --pink: #ff86c8;
+
+      --border:
+        rgba(180,210,235,.17);
+
+      --border-bright:
+        rgba(85,221,255,.42);
+
+      --radius: 25px;
+
+      --max: 1180px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      background:
+        radial-gradient(
+          circle at 10% 5%,
+          rgba(55,174,255,.10),
+          transparent 27%
+        ),
+
+        radial-gradient(
+          circle at 90% 35%,
+          rgba(132,89,255,.10),
+          transparent 30%
+        ),
+
+        var(--bg);
+
+      color: var(--white);
+
+      font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      overflow-x: hidden;
+
+      line-height: 1.6;
+    }
+
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          115deg,
+          transparent 30%,
+          rgba(255,255,255,.018),
+          transparent 70%
+        );
+
+      z-index: -2;
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    .container {
+
+      width:
+        min(92%, var(--max));
+
+      margin: auto;
+    }
+
+
+    /* =====================================================
+       GLASS
+    ===================================================== */
+
+    .glass {
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.075),
+          rgba(255,255,255,.025)
+        );
+
+      border:
+        1px solid var(--border);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+
+      box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.04),
+
+        0 20px 70px
+        rgba(0,0,0,.15);
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    .navbar {
+
+      position: fixed;
+
+      top: 20px;
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      width:
+        min(92%, 1180px);
+
+      height: 70px;
+
+      z-index: 1000;
+
+      border-radius: 40px;
+
+      transition:
+        .35s ease;
+    }
+
+
+    .navbar.scrolled {
+
+      background:
+        rgba(5,12,23,.86);
+
+      border-color:
+        rgba(85,221,255,.22);
+
+      box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.35);
+    }
+
+
+    .nav-inner {
+
+      height: 100%;
+
+      padding:
+        0 20px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+
+    /* LOGO */
+
+    .logo {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+
+      font-size: 1.15rem;
+
+      font-weight: 900;
+
+      letter-spacing: .16em;
+    }
+
+
+    .logo-symbol {
+
+      width: 45px;
+      height: 45px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      border:
+        1px solid var(--cyan);
+
+      color:
+        var(--cyan);
+
+      font-size: .82rem;
+
+      box-shadow:
+        0 0 20px
+        rgba(85,221,255,.10);
+    }
+
+
+    .logo-dot {
+
+      color:
+        var(--cyan);
+    }
+
+
+    /* DESKTOP LINKS */
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 30px;
+
+      color:
+        #c1ccda;
+
+      font-size:
+        .82rem;
+    }
+
+
+    .nav-links a {
+
+      position: relative;
+
+      transition:
+        .25s ease;
+    }
+
+
+    .nav-links a:hover {
+
+      color:
+        var(--cyan);
+    }
+
+
+    .nav-links a::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      bottom: -9px;
+
+      width: 4px;
+      height: 4px;
+
+      border-radius: 50%;
+
+      background:
+        var(--cyan);
+
+      transform:
+        translateX(-50%)
+        scale(0);
+
+      transition:
+        .25s ease;
+    }
+
+
+    .nav-links a:hover::after {
+
+      transform:
+        translateX(-50%)
+        scale(1);
+    }
+
+
+    .nav-cta {
+
+      padding:
+        10px 18px;
+
+      border-radius:
+        30px;
+
+      background:
+        var(--cyan);
+
+      color:
+        #04101b;
+
+      font-weight:
+        800;
+
+      font-size:
+        .78rem;
+
+      transition:
+        .25s ease;
+    }
+
+
+    .nav-cta:hover {
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 8px 30px
+        rgba(85,221,255,.25);
+    }
+
+
+    /* HAMBURGER */
+
+    .menu-button {
+
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255,255,255,.03);
+
+      color: white;
+
+      cursor: pointer;
+
+      font-size: 1.35rem;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    .mobile-menu {
+
+      position: fixed;
+
+      top: 100px;
+
+      left: 4%;
+
+      width: 92%;
+
+      padding: 25px;
+
+      border-radius: 24px;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transform:
+        translateY(-15px);
+
+      transition:
+        .3s ease;
+
+      z-index: 999;
+    }
+
+
+    .mobile-menu.active {
+
+      opacity: 1;
+
+      pointer-events: auto;
+
+      transform:
+        translateY(0);
+    }
+
+
+    .mobile-menu a {
+
+      display: block;
+
+      padding: 14px 5px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      color:
+        var(--muted);
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+
+      min-height:
+        900px;
+
+      padding-top:
+        150px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      position:
+        relative;
+    }
+
+
+    .hero-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        .95fr 1.05fr;
+
+      gap:
+        55px;
+
+      align-items:
+        center;
+    }
+
+
+    .eyebrow {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      font-size:
+        .78rem;
+
+      letter-spacing:
+        .18em;
+
+      margin-bottom:
+        25px;
+    }
+
+
+    .eyebrow::before {
+
+      content: "";
+
+      width:
+        40px;
+
+      height:
+        2px;
+
+      background:
+        var(--cyan);
+    }
+
+
+    .hero-title {
+
+      font-size:
+        clamp(4.8rem, 9vw, 8.8rem);
+
+      line-height:
+        .82;
+
+      letter-spacing:
+        -.085em;
+
+      font-weight:
+        850;
+
+      margin-bottom:
+        35px;
+    }
+
+
+    .hero-title .cyan {
+
+      color:
+        var(--cyan);
+
+      font-style:
+        italic;
+    }
+
+
+    .hero-description {
+
+      max-width:
+        620px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        1.18rem;
+
+      line-height:
+        1.7;
+
+      margin-bottom:
+        30px;
+    }
+
+
+    /* BUTTONS */
+
+    .buttons {
+
+      display:
+        flex;
+
+      gap:
+        15px;
+
+      flex-wrap:
+        wrap;
+    }
+
+
+    .button {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        18px;
+
+      padding:
+        17px 25px;
+
+      border-radius:
+        14px;
+
+      font-weight:
+        800;
+
+      transition:
+        .3s ease;
+    }
+
+
+    .button-primary {
+
+      background:
+        var(--cyan);
+
+      color:
+        #04101b;
+
+      box-shadow:
+        0 10px 35px
+        rgba(85,221,255,.14);
+    }
+
+
+    .button-primary:hover {
+
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 15px 45px
+        rgba(85,221,255,.28);
+    }
+
+
+    .button-secondary {
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255,255,255,.035);
+    }
+
+
+    .button-secondary:hover {
+
+      border-color:
+        var(--cyan);
+
+      transform:
+        translateY(-4px);
+
+      background:
+        rgba(85,221,255,.06);
+    }
+
+
+    .hero-notes {
+
+      margin-top:
+        45px;
+
+      font-family:
+        monospace;
+
+      color:
+        #8291a7;
+
+      font-size:
+        .75rem;
+
+      letter-spacing:
+        .1em;
+
+      line-height:
+        2.5;
+    }
+
+
+    .hero-notes span {
+
+      color:
+        var(--pink);
+    }
+
+
+    /* =====================================================
+       ORBITAL SYSTEM
+    ===================================================== */
+
+    .system-card {
+
+      position:
+        relative;
+
+      min-height:
+        560px;
+
+      border-radius:
+        30px;
+
+      overflow:
+        hidden;
+
+      padding:
+        25px;
+    }
+
+
+    .system-card::before {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        300px;
+
+      height:
+        300px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--cyan);
+
+      filter:
+        blur(110px);
+
+      opacity:
+        .07;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      transform:
+        translate(-50%,-50%);
+    }
+
+
+    .system-top {
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      position:
+        relative;
+
+      z-index:
+        3;
+
+      color:
+        #a7b3c4;
+
+      font-family:
+        monospace;
+
+      font-size:
+        .72rem;
+
+      letter-spacing:
+        .08em;
+    }
+
+
+    .active {
+
+      color:
+        var(--cyan);
+    }
+
+
+    .active::before {
+
+      content: "";
+
+      display:
+        inline-block;
+
+      width:
+        9px;
+
+      height:
+        9px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--cyan);
+
+      margin-right:
+        7px;
+
+      box-shadow:
+        0 0 15px
+        var(--cyan);
+    }
+
+
+    .orbit {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      width:
+        430px;
+
+      height:
+        260px;
+
+      border:
+        1px solid
+        rgba(85,221,255,.38);
+
+      border-radius:
+        50%;
+
+      transform:
+        translate(-50%,-50%)
+        rotate(-18deg);
+
+      animation:
+        orbitFloat 8s ease-in-out infinite;
+    }
+
+
+    .orbit-two {
+
+      width:
+        500px;
+
+      height:
+        290px;
+
+      border-color:
+        rgba(150,117,255,.38);
+
+      transform:
+        translate(-50%,-50%)
+        rotate(28deg);
+
+      animation:
+        orbitFloat2 10s ease-in-out infinite;
+    }
+
+
+    @keyframes orbitFloat {
+
+      0%,100% {
+        transform:
+          translate(-50%,-50%)
+          rotate(-18deg)
+          scale(1);
+      }
+
+      50% {
+        transform:
+          translate(-50%,-50%)
+          rotate(-12deg)
+          scale(1.04);
+      }
+    }
+
+
+    @keyframes orbitFloat2 {
+
+      0%,100% {
+        transform:
+          translate(-50%,-50%)
+          rotate(28deg)
+          scale(1);
+      }
+
+      50% {
+        transform:
+          translate(-50%,-50%)
+          rotate(35deg)
+          scale(.96);
+      }
+    }
+
+
+    /* CENTRAL AYPEX */
+
+    .core {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      width:
+        150px;
+
+      height:
+        150px;
+
+      transform:
+        translate(-50%,-50%);
+
+      border:
+        1px solid
+        var(--cyan);
+
+      border-radius:
+        50%;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      font-family:
+        monospace;
+
+      letter-spacing:
+        .2em;
+
+      z-index:
+        4;
+
+      background:
+        rgba(3,11,20,.65);
+
+      backdrop-filter:
+        blur(15px);
+
+      box-shadow:
+        0 0 35px
+        rgba(85,221,255,.12);
+    }
+
+
+    /*
+       OUTER DOTTED RING
+       CLOCKWISE ROTATION
+    */
+
+    .core-ring {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      width:
+        205px;
+
+      height:
+        205px;
+
+      transform:
+        translate(-50%,-50%);
+
+      border:
+        2px dashed
+        rgba(85,221,255,.62);
+
+      border-radius:
+        50%;
+
+      z-index:
+        3;
+
+      animation:
+        rotateClockwise 12s linear infinite;
+    }
+
+
+    @keyframes rotateClockwise {
+
+      from {
+        transform:
+          translate(-50%,-50%)
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          translate(-50%,-50%)
+          rotate(360deg);
+      }
+    }
+
+
+    /* ORBIT NODES */
+
+    .node {
+
+      position:
+        absolute;
+
+      width:
+        95px;
+
+      height:
+        95px;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid
+        rgba(180,210,235,.28);
+
+      background:
+        rgba(9,20,34,.68);
+
+      backdrop-filter:
+        blur(15px);
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      z-index:
+        5;
+
+      font-size:
+        .72rem;
+
+      font-weight:
+        700;
+
+      transition:
+        .3s ease;
+    }
+
+
+    .node:hover {
+
+      transform:
+        scale(1.12);
+
+      border-color:
+        var(--cyan);
+
+      box-shadow:
+        0 0 30px
+        rgba(85,221,255,.18);
+    }
+
+
+    .node-build {
+      top:
+        25%;
+
+      left:
+        10%;
+    }
+
+
+    .node-grow {
+      top:
+        23%;
+
+      right:
+        10%;
+    }
+
+
+    .node-optimize {
+      bottom:
+        24%;
+
+      left:
+        10%;
+    }
+
+
+    .node-connect {
+      bottom:
+        22%;
+
+      right:
+        10%;
+    }
+
+
+    .node-dot {
+
+      position:
+        absolute;
+
+      width:
+        12px;
+
+      height:
+        12px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--cyan);
+
+      top:
+        -3px;
+
+      right:
+        15px;
+
+      box-shadow:
+        0 0 15px
+        var(--cyan);
+    }
+
+
+    .node:nth-of-type(5) .node-dot,
+    .node:nth-of-type(6) .node-dot {
+
+      background:
+        var(--purple);
+
+      box-shadow:
+        0 0 15px
+        var(--purple);
+    }
+
+
+    .system-bottom {
+
+      position:
+        absolute;
+
+      bottom:
+        22px;
+
+      left:
+        25px;
+
+      right:
+        25px;
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      padding-top:
+        15px;
+
+      border-top:
+        1px solid var(--border);
+
+      color:
+        #8291a7;
+
+      font-family:
+        monospace;
+
+      font-size:
+        .7rem;
+    }
+
+
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
+
+    section {
+
+      padding:
+        130px 0;
+    }
+
+
+    .section-line {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      font-family:
+        monospace;
+
+      color:
+        var(--cyan);
+
+      font-size:
+        .76rem;
+
+      letter-spacing:
+        .15em;
+
+      margin-bottom:
+        22px;
+    }
+
+
+    .section-line::before {
+
+      content: "";
+
+      width:
+        40px;
+
+      height:
+        2px;
+
+      background:
+        var(--cyan);
+    }
+
+
+    .section-title {
+
+      font-size:
+        clamp(3rem, 6vw, 6.5rem);
+
+      line-height:
+        .88;
+
+      letter-spacing:
+        -.075em;
+
+      font-weight:
+        850;
+
+      max-width:
+        1000px;
+
+      margin-bottom:
+        30px;
+    }
+
+
+    .section-title .cyan {
+
+      color:
+        var(--cyan);
+    }
+
+
+    .section-description {
+
+      max-width:
+        760px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        1.15rem;
+
+      line-height:
+        1.7;
+    }
+
+
+    /* =====================================================
+       SERVICE CARDS
+    ===================================================== */
+
+    .services-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2,1fr);
+
+      gap:
+        18px;
+
+      margin-top:
+        55px;
+    }
+
+
+    .service-card {
+
+      min-height:
+        330px;
+
+      padding:
+        30px;
+
+      border-radius:
+        25px;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      transition:
+        .45s cubic-bezier(.2,.8,.2,1);
+    }
+
+
+    .service-card::after {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        180px;
+
+      height:
+        180px;
+
+      border:
+        1px solid
+        rgba(85,221,255,.15);
+
+      border-radius:
+        50%;
+
+      right:
+        -75px;
+
+      bottom:
+        -70px;
+
+      transition:
+        .5s ease;
+    }
+
+
+    .service-card:hover {
+
+      transform:
+        translateY(-9px);
+
+      border-color:
+        var(--border-bright);
+
+      box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.28);
+    }
+
+
+    .service-card:hover::after {
+
+      transform:
+        scale(1.3);
+
+      border-color:
+        rgba(85,221,255,.3);
+    }
+
+
+    .service-number {
+
+      font-family:
+        monospace;
+
+      color:
+        var(--cyan);
+
+      font-size:
+        .8rem;
+
+      letter-spacing:
+        .1em;
+    }
+
+
+    .service-card h3 {
+
+      font-size:
+        clamp(2.2rem, 4vw, 4rem);
+
+      letter-spacing:
+        -.06em;
+
+      margin:
+        70px 0 15px;
+    }
+
+
+    .service-card p {
+
+      max-width:
+        600px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        1.05rem;
+    }
+
+
+    .service-arrow {
+
+      position:
+        absolute;
+
+      right:
+        25px;
+
+      top:
+        25px;
+
+      font-size:
+        1.4rem;
+
+      color:
+        #748398;
+
+      transition:
+        .3s ease;
+    }
+
+
+    .service-card:hover .service-arrow {
+
+      color:
+        var(--cyan);
+
+      transform:
+        translate(4px,-4px);
+    }
+
+
+    /* =====================================================
+       VALUES
+    ===================================================== */
+
+    .values-layout {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        .75fr 1.25fr;
+
+      gap:
+        60px;
+
+      align-items:
+        start;
+
+      margin-top:
+        55px;
+    }
+
+
+    .values-intro h3 {
+
+      font-size:
+        clamp(2.5rem, 5vw, 5rem);
+
+      line-height:
+        .9;
+
+      letter-spacing:
+        -.07em;
+
+      margin-bottom:
+        25px;
+    }
+
+
+    .values-intro h3 span {
+
+      color:
+        var(--cyan);
+    }
+
+
+    .values-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2,1fr);
+
+      gap:
+        14px;
+    }
+
+
+    .value-card {
+
+      padding:
+        28px;
+
+      min-height:
+        170px;
+
+      border-radius:
+        20px;
+
+      transition:
+        .35s ease;
+    }
+
+
+    .value-card:hover {
+
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(150,117,255,.38);
+    }
+
+
+    .value-card h4 {
+
+      font-size:
+        1.35rem;
+
+      margin-bottom:
+        10px;
+    }
+
+
+    .value-card p {
+
+      color:
+        var(--muted);
+
+      font-size:
+        .94rem;
+    }
+
+
+    /* =====================================================
+       FOUNDER
+    ===================================================== */
+
+    .founder-card {
+
+      margin-top:
+        55px;
+
+      padding:
+        45px;
+
+      border-radius:
+        28px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        180px 1fr;
+
+      gap:
+        40px;
+
+      align-items:
+        center;
+    }
+
+
+    .founder-avatar {
+
+      width:
+        150px;
+
+      height:
+        150px;
+
+      border-radius:
+        50%;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--purple)
+        );
+
+      color:
+        #06101c;
+
+      font-size:
+        2.6rem;
+
+      font-weight:
+        950;
+
+      box-shadow:
+        0 0 60px
+        rgba(85,221,255,.15);
+
+      animation:
+        founderFloat 4s ease-in-out infinite;
+    }
+
+
+    @keyframes founderFloat {
+
+      0%,100% {
+        transform:
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          translateY(-8px);
+      }
+    }
+
+
+    .founder-name {
+
+      font-size:
+        clamp(3rem, 6vw, 5.5rem);
+
+      line-height:
+        .9;
+
+      letter-spacing:
+        -.07em;
+
+      margin-bottom:
+        10px;
+    }
+
+
+    .founder-role {
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      letter-spacing:
+        .1em;
+
+      margin-bottom:
+        20px;
+    }
+
+
+    .founder-description {
+
+      color:
+        var(--muted);
+
+      font-size:
+        1.1rem;
+
+      max-width:
+        700px;
+    }
+
+
+    /* =====================================================
+       ROADMAP
+    ===================================================== */
+
+    .roadmap {
+
+      position:
+        relative;
+
+      margin-top:
+        80px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap:
+        25px;
+    }
+
+
+    .roadmap::before {
+
+      content: "";
+
+      position:
+        absolute;
+
+      top:
+        15px;
+
+      left:
+        0;
+
+      right:
+        0;
+
+      border-top:
+        1px dashed
+        rgba(130,150,180,.25);
+    }
+
+
+    .phase {
+
+      position:
+        relative;
+
+      padding-top:
+        45px;
+    }
+
+
+    .phase-dot {
+
+      position:
+        absolute;
+
+      top:
+        0;
+
+      left:
+        0;
+
+      width:
+        30px;
+
+      height:
+        30px;
+
+      border-radius:
+        50%;
+
+      border:
+        2px solid
+        var(--cyan);
+
+      background:
+        var(--bg);
+
+      box-shadow:
+        0 0 20px
+        rgba(85,221,255,.2);
+    }
+
+
+    .phase:nth-child(even) .phase-dot {
+
+      border-color:
+        var(--purple);
+
+      box-shadow:
+        0 0 20px
+        rgba(150,117,255,.2);
+    }
+
+
+    .phase-number {
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      font-size:
+        .78rem;
+
+      letter-spacing:
+        .1em;
+    }
+
+
+    .phase h3 {
+
+      font-size:
+        1.6rem;
+
+      margin:
+        10px 0;
+    }
+
+
+    .phase p {
+
+      color:
+        var(--muted);
+
+      font-size:
+        .95rem;
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .cta-card {
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      padding:
+        80px 55px;
+
+      border-radius:
+        30px;
+
+      text-align:
+        center;
+
+      margin-top:
+        60px;
+    }
+
+
+    .cta-card::before {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        300px;
+
+      height:
+        300px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--cyan);
+
+      filter:
+        blur(120px);
+
+      opacity:
+        .08;
+
+      left:
+        -100px;
+
+      bottom:
+        -150px;
+    }
+
+
+    .cta-card::after {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        300px;
+
+      height:
+        300px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--purple);
+
+      filter:
+        blur(120px);
+
+      opacity:
+        .09;
+
+      right:
+        -100px;
+
+      bottom:
+        -150px;
+    }
+
+
+    .cta-title {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      font-size:
+        clamp(3rem,6vw,6rem);
+
+      line-height:
+        .9;
+
+      letter-spacing:
+        -.07em;
+
+      max-width:
+        850px;
+
+      margin:
+        20px auto 25px;
+    }
+
+
+    .cta-title span {
+
+      color:
+        var(--cyan);
+    }
+
+
+    .cta-card p {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        650px;
+
+      margin:
+        auto;
+
+      color:
+        var(--muted);
+
+      font-size:
+        1.1rem;
+    }
+
+
+    .cta-card .button {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      margin-top:
+        30px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      margin-top:
+        80px;
+
+      padding:
+        70px 0 35px;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+
+    .footer-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+      gap:
+        50px;
+
+      padding-bottom:
+        55px;
+    }
+
+
+    .footer-logo {
+
+      font-size:
+        1.4rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .16em;
+    }
+
+
+    .footer-logo span {
+
+      color:
+        var(--cyan);
+    }
+
+
+    .footer-brand p {
+
+      max-width:
+        300px;
+
+      margin-top:
+        15px;
+
+      color:
+        var(--muted);
+    }
+
+
+    .footer-tagline {
+
+      margin-top:
+        18px;
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      letter-spacing:
+        .1em;
+
+      font-size:
+        .75rem;
+    }
+
+
+    .footer-column {
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        10px;
+    }
+
+
+    .footer-column h4 {
+
+      margin-bottom:
+        8px;
+
+      color:
+        white;
+    }
+
+
+    .footer-column a {
+
+      color:
+        var(--muted);
+
+      font-size:
+        .88rem;
+
+      transition:
+        .2s ease;
+    }
+
+
+    .footer-column a:hover {
+
+      color:
+        var(--cyan);
+
+      transform:
+        translateX(4px);
+    }
+
+
+    /* =====================================================
+       FOUNDER'S DESK LINK
+    ===================================================== */
+
+    .founder-desk-link {
+
+      display:
+        inline-flex !important;
+
+      align-items:
+        center;
+
+      gap:
+        8px;
+
+      color:
+        var(--cyan) !important;
+
+      font-family:
+        monospace;
+
+      font-size:
+        .78rem !important;
+
+      letter-spacing:
+        .05em;
+
+      margin-bottom:
+        12px;
+
+      transition:
+        .3s ease;
+    }
+
+
+    .founder-desk-link:hover {
+
+      transform:
+        translateX(5px) !important;
+
+      color:
+        white !important;
+    }
+
+
+    /* =====================================================
+       CONTACT DETAILS BOX
+    ===================================================== */
+
+    .contact-box {
+
+      padding:
+        18px;
+
+      border-radius:
+        18px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(85,221,255,.055),
+          rgba(150,117,255,.045)
+        );
+
+      border:
+        1px solid
+        rgba(85,221,255,.16);
+
+      transition:
+        .35s ease;
+    }
+
+
+    .contact-box:hover {
+
+      border-color:
+        rgba(85,221,255,.35);
+
+      box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.2);
+    }
+
+
+    .contact-item {
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        3px;
+    }
+
+
+    .contact-label {
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      font-size:
+        .62rem;
+
+      letter-spacing:
+        .13em;
+    }
+
+
+    .contact-item a {
+
+      color:
+        #c4cfdd;
+
+      font-size:
+        .78rem;
+
+      word-break:
+        break-word;
+
+      transition:
+        .25s ease;
+    }
+
+
+    .contact-item a:hover {
+
+      color:
+        white;
+    }
+
+
+    .footer-bottom {
+
+      padding-top:
+        25px;
+
+      border-top:
+        1px solid var(--border);
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      color:
+        #6f8096;
+
+      font-family:
+        monospace;
+
+      font-size:
+        .72rem;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        15px;
+    }
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    .reveal {
+
+      opacity:
+        0;
+
+      transform:
+        translateY(50px);
+
+      transition:
+        opacity .9s cubic-bezier(.2,.8,.2,1),
+        transform .9s cubic-bezier(.2,.8,.2,1);
+    }
+
+
+    .reveal-left {
+
+      opacity:
+        0;
+
+      transform:
+        translateX(-55px);
+
+      transition:
+        opacity .9s ease,
+        transform .9s ease;
+    }
+
+
+    .reveal-right {
+
+      opacity:
+        0;
+
+      transform:
+        translateX(55px);
+
+      transition:
+        opacity .9s ease,
+        transform .9s ease;
+    }
+
+
+    .visible {
+
+      opacity:
+        1;
+
+      transform:
+        translate(0,0);
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-button {
+        display: grid;
+        place-items: center;
+      }
+
+
+      .hero-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .hero {
+
+        padding-top:
+          140px;
+      }
+
+
+      .system-card {
+
+        min-height:
+          500px;
+      }
+
+
+      .values-layout {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .roadmap {
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+      }
+
+
+      .roadmap::before {
+
+        display:
+          none;
+
+      }
+
+
+      .footer-grid {
+
+        grid-template-columns:
+          2fr 1fr;
+
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      section {
+
+        padding:
+          90px 0;
+      }
+
+
+      .navbar {
+
+        top:
+          12px;
+
+      }
+
+
+      .hero {
+
+        min-height:
+          850px;
+
+      }
+
+
+      .hero-title {
+
+        font-size:
+          clamp(4.2rem, 19vw, 6rem);
+      }
+
+
+      .hero-description {
+
+        font-size:
+          1rem;
+      }
+
+
+      .system-card {
+
+        min-height:
+          420px;
+      }
+
+
+      .orbit {
+
+        width:
+          320px;
+
+        height:
+          205px;
+      }
+
+
+      .orbit-two {
+
+        width:
+          370px;
+
+        height:
+          225px;
+      }
+
+
+      .core {
+
+        width:
+          115px;
+
+        height:
+          115px;
+      }
+
+
+      .core-ring {
+
+        width:
+          160px;
+
+        height:
+          160px;
+      }
+
+
+      .node {
+
+        width:
+          72px;
+
+        height:
+          72px;
+
+        font-size:
+          .6rem;
+      }
+
+
+      .node-build {
+        left:
+          3%;
+      }
+
+
+      .node-grow {
+        right:
+          3%;
+      }
+
+
+      .node-optimize {
+        left:
+          3%;
+      }
+
+
+      .node-connect {
+        right:
+          3%;
+      }
+
+
+      .services-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .service-card {
+
+        min-height:
+          280px;
+      }
+
+
+      .service-card h3 {
+
+        margin-top:
+          60px;
+
+        font-size:
+          3.2rem;
+      }
+
+
+      .values-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .founder-card {
+
+        grid-template-columns:
+          1fr;
+
+        text-align:
+          center;
+
+        padding:
+          35px 25px;
+      }
+
+
+      .founder-avatar {
+
+        margin:
+          auto;
+      }
+
+
+      .roadmap {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .cta-card {
+
+        padding:
+          65px 25px;
+      }
+
+
+      .footer-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+      .footer-bottom {
+
+        flex-direction:
+          column;
+      }
+
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+
+        animation:
+          none !important;
+
+        transition:
+          none !important;
+
+        scroll-behavior:
+          auto !important;
+      }
+
+      .reveal,
+      .reveal-left,
+      .reveal-right {
+
+        opacity:
+          1;
+
+        transform:
+          none;
+      }
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
+
+  <nav
+    class="navbar glass"
+    id="navbar"
+  >
+
+    <div class="nav-inner">
+
+
+      <a
+        href="#home"
+        class="logo"
+      >
+
+        <span class="logo-symbol">
+          A/
+        </span>
+
+        <span>
+          AYPEX <span class="logo-dot">.CO</span>
+        </span>
+
+      </a>
+
+
+      <div class="nav-links">
+
+        <a href="#home">
+          HOME
+        </a>
+
+        <a href="#about">
+          ABOUT
+        </a>
+
+        <a href="#services">
+          SERVICES
+        </a>
+
+        <a href="#founder">
+          FOUNDER
+        </a>
+
+        <a href="#roadmap">
+          ROADMAP
+        </a>
+
+        <a href="#contact">
+          CONTACT
+        </a>
+
+      </div>
+
+
+      <a
+        href="#contact"
+        class="nav-cta"
+      >
+        Let's Connect ↗
+      </a>
+
+
+      <button
+        class="menu-button"
+        id="menuButton"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- MOBILE MENU -->
+
+  <div
+    class="mobile-menu glass"
+    id="mobileMenu"
+  >
+
+    <a href="#home">HOME</a>
+
+    <a href="#about">ABOUT</a>
+
+    <a href="#services">SERVICES</a>
+
+    <a href="#founder">FOUNDER</a>
+
+    <a href="#roadmap">ROADMAP</a>
+
+    <a href="#contact">CONTACT</a>
+
+  </div>
+
+
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
+
+  <header
+    class="hero"
+    id="home"
+  >
+
+    <div class="container">
+
+      <div class="hero-grid">
+
+
+        <!-- LEFT -->
+
+        <div class="hero-content reveal">
+
+          <div class="eyebrow">
+
+            BUSINESS INFRASTRUCTURE & GROWTH
+
+          </div>
+
+
+          <h1 class="hero-title">
+
+            Build.<br>
+
+            <span class="cyan">
+              Grow.
+            </span><br>
+
+            Connect.
+
+          </h1>
+
+
+          <p class="hero-description">
+
+            AYPEX.CO helps businesses build their digital
+            foundation, improve their operations, grow their
+            presence, and connect with new opportunities.
+
+          </p>
+
+
+          <div class="buttons">
+
+            <a
+              href="#services"
+              class="button button-primary"
+            >
+              Explore AYPEX
+              ↘
+            </a>
+
+
+            <a
+              href="#about"
+              class="button button-secondary"
+            >
+              Our foundation
+            </a>
+
+          </div>
+
+
+          <div class="hero-notes">
+
+            FOR AMBITIOUS BUSINESSES
+            <span>●</span>
+
+            <br>
+
+            START LEAN. THINK FURTHER.
+
+          </div>
+
+        </div>
+
+
+        <!-- RIGHT SYSTEM -->
+
+        <div
+          class="system-card glass reveal-right"
+        >
+
+          <div class="system-top">
+
+            <span>
+              THE AYPEX SYSTEM / 001
+            </span>
+
+            <span class="active">
+              ACTIVE FRAMEWORK
+            </span>
+
+          </div>
+
+
+          <!-- ORBITS -->
+
+          <div class="orbit"></div>
+
+          <div class="orbit orbit-two"></div>
+
+
+          <!-- CORE -->
+
+          <div class="core-ring"></div>
+
+          <div class="core">
+            AYPEX
+          </div>
+
+
+          <!-- NODES -->
+
+          <div class="node node-build">
+
+            <span class="node-dot"></span>
+
+            BUILD
+
+          </div>
+
+
+          <div class="node node-grow">
+
+            <span class="node-dot"></span>
+
+            GROW
+
+          </div>
+
+
+          <div class="node node-optimize">
+
+            <span class="node-dot"></span>
+
+            OPTIMIZE
+
+          </div>
+
+
+          <div class="node node-connect">
+
+            <span class="node-dot"></span>
+
+            CONNECT
+
+          </div>
+
+
+          <div class="system-bottom">
+
+            <span>
+              FOUNDER / BUSINESS
+            </span>
+
+            <span>
+              FORWARD MOTION
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- =====================================================
+         ABOUT
+    ===================================================== -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="section-line">
+            01 / THE IDEA
+          </div>
+
+
+          <h2 class="section-title">
+
+            Infrastructure for
+            <span class="cyan">
+              ambitious businesses.
+            </span>
+
+          </h2>
+
+
+          <p class="section-description">
+
+            AYPEX.CO exists to help businesses establish
+            stronger digital foundations, improve their systems,
+            reach more customers and create meaningful
+            connections.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICES
+    ===================================================== -->
+
+    <section id="services">
+
+      <div class="container">
+
+
+        <div class="reveal">
+
+          <div class="section-line">
+            02 / 04
+          </div>
+
+
+          <h2 class="section-title">
+
+            Build the
+            <span class="cyan">
+              foundation.
+            </span>
+
+          </h2>
+
+
+          <p class="section-description">
+
+            Four core areas designed to help businesses move
+            from idea to infrastructure, and from infrastructure
+            to sustainable growth.
+
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+          <article
+            class="service-card glass reveal"
+          >
+
+            <span class="service-number">
+              01 / 04
+            </span>
+
+            <span class="service-arrow">
+              ↗
+            </span>
+
+            <h3>
+              BUILD
+            </h3>
+
+            <p>
+
+              Websites, branding, digital profiles,
+              business materials and foundational systems.
+
+            </p>
+
+          </article>
+
+
+          <article
+            class="service-card glass reveal"
+            style="transition-delay:.1s"
+          >
+
+            <span class="service-number">
+              02 / 04
+            </span>
+
+            <span class="service-arrow">
+              ↗
+            </span>
+
+            <h3>
+              GROW
+            </h3>
+
+            <p>
+
+              Digital marketing, content, customer acquisition,
+              analytics and growth strategy.
+
+            </p>
+
+          </article>
+
+
+          <article
+            class="service-card glass reveal"
+            style="transition-delay:.2s"
+          >
+
+            <span class="service-number">
+              03 / 04
+            </span>
+
+            <span class="service-arrow">
+              ↗
+            </span>
+
+            <h3>
+              CONNECT
+            </h3>
+
+            <p>
+
+              Networking, partnerships, suppliers, clients,
+              collaborations and opportunities.
+
+            </p>
+
+          </article>
+
+
+          <article
+            class="service-card glass reveal"
+            style="transition-delay:.3s"
+          >
+
+            <span class="service-number">
+              04 / 04
+            </span>
+
+            <span class="service-arrow">
+              ↗
+            </span>
+
+            <h3>
+              OPTIMIZE
+            </h3>
+
+            <p>
+
+              Automation, CRM, workflows, productivity systems,
+              data organization and AI tools.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VALUES
+    ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+
+        <div class="values-layout">
+
+
+          <div class="values-intro reveal-left">
+
+            <div class="section-line">
+              03 / 04
+            </div>
+
+
+            <h3>
+
+              Our values
+              <span>
+                drive every decision.
+              </span>
+
+            </h3>
+
+
+            <p class="section-description">
+
+              Principles that shape the infrastructure we build
+              and the impact we create.
+
+            </p>
+
+          </div>
+
+
+          <div class="values-grid">
+
+
+            <div
+              class="value-card glass reveal"
+            >
+
+              <h4>
+                Innovation
+              </h4>
+
+              <p>
+                Use technology to make business better.
+              </p>
+
+            </div>
+
+
+            <div
+              class="value-card glass reveal"
+              style="transition-delay:.08s"
+            >
+
+              <h4>
+                Accessibility
+              </h4>
+
+              <p>
+                Make professional infrastructure easier to access.
+              </p>
+
+            </div>
+
+
+            <div
+              class="value-card glass reveal"
+              style="transition-delay:.16s"
+            >
+
+              <h4>
+                Growth
+              </h4>
+
+              <p>
+                Create measurable value.
+              </p>
+
+            </div>
+
+
+            <div
+              class="value-card glass reveal"
+              style="transition-delay:.24s"
+            >
+
+              <h4>
+                Trust
+              </h4>
+
+              <p>
+                Respect the confidence businesses place in us.
+              </p>
+
+            </div>
+
+
+            <div
+              class="value-card glass reveal"
+              style="transition-delay:.32s"
+            >
+
+              <h4>
+                Connection
+              </h4>
+
+              <p>
+                Strong networks create stronger businesses.
+              </p>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOUNDER
+    ===================================================== -->
+
+    <section id="founder">
+
+      <div class="container">
+
+
+        <div class="reveal">
+
+          <div class="section-line">
+            04 / FOUNDER
+          </div>
+
+
+          <h2 class="section-title">
+
+            The person
+            behind
+            <span class="cyan">
+              AYPEX.CO.
+            </span>
+
+          </h2>
+
+        </div>
+
+
+        <div
+          class="founder-card glass reveal"
+        >
+
+
+          <div class="founder-avatar">
+
+            AS
+
+          </div>
+
+
+          <div>
+
+            <div class="founder-name">
+
+              Ayan Sheikh
+
+            </div>
+
+
+            <div class="founder-role">
+
+              FOUNDER / AYPEX.CO
+
+            </div>
+
+
+            <p class="founder-description">
+
+              AYPEX.CO is being built around a simple idea:
+              businesses should have access to the digital
+              infrastructure, resources and connections they
+              need to build stronger foundations and grow.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ROADMAP
+    ===================================================== -->
+
+    <section id="roadmap">
+
+      <div class="container">
+
+
+        <div class="reveal">
+
+          <div class="section-line">
+            05 / ROADMAP
+          </div>
+
+
+          <h2 class="section-title">
+
+            Start lean.
+            Build the
+            <span class="cyan">
+              ecosystem
+            </span>
+            later.
+
+          </h2>
+
+
+          <p class="section-description">
+
+            AYPEX does not need to launch as a giant corporation.
+            Start with practical services, prove demand, build a
+            client base, and expand from there.
+
+          </p>
+
+        </div>
+
+
+        <div class="roadmap">
+
+
+          <div class="phase reveal">
+
+            <span class="phase-dot"></span>
+
+            <span class="phase-number">
+              01 / PHASE
+            </span>
+
+            <h3>
+              AYPEX 1.0
+            </h3>
+
+            <p>
+              BUILD: digital foundations and business setup.
+            </p>
+
+          </div>
+
+
+          <div
+            class="phase reveal"
+            style="transition-delay:.12s"
+          >
+
+            <span class="phase-dot"></span>
+
+            <span class="phase-number">
+              02 / PHASE
+            </span>
+
+            <h3>
+              AYPEX 2.0
+            </h3>
+
+            <p>
+              GROW: marketing, acquisition and strategy.
+            </p>
+
+          </div>
+
+
+          <div
+            class="phase reveal"
+            style="transition-delay:.24s"
+          >
+
+            <span class="phase-dot"></span>
+
+            <span class="phase-number">
+              03 / PHASE
+            </span>
+
+            <h3>
+              AYPEX 3.0
+            </h3>
+
+            <p>
+              CONNECT: networking, partnerships and opportunities.
+            </p>
+
+          </div>
+
+
+          <div
+            class="phase reveal"
+            style="transition-delay:.36s"
+          >
+
+            <span class="phase-dot"></span>
+
+            <span class="phase-number">
+              04 / PHASE
+            </span>
+
+            <h3>
+              AYPEX 4.0
+            </h3>
+
+            <p>
+              ECOSYSTEM: technology, automation, tools and network.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+
+        <div
+          class="cta-card glass reveal"
+        >
+
+          <div
+            class="section-line"
+            style="justify-content:center"
+          >
+
+            AYPEX.CO
+
+          </div>
+
+
+          <h2 class="cta-title">
+
+            Build something
+            businesses can
+            <span>
+              build on.
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            AYPEX starts with practical services and grows
+            toward a complete business infrastructure ecosystem.
+
+          </p>
+
+
+          <a
+            href="#home"
+            class="button button-primary"
+          >
+
+            Discover AYPEX
+            ↗
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer id="contact">
+
+    <div class="container">
+
+
+      <div class="footer-grid">
+
+
+        <!-- BRAND -->
+
+        <div>
+
+          <div class="footer-logo">
+
+            AYPEX<span>.CO</span>
+
+          </div>
+
+
+          <p class="footer-brand p">
+
+            Business infrastructure for ambitious businesses.
+
+          </p>
+
+
+          <div class="footer-tagline">
+
+            BUILD. GROW. CONNECT.
+
+          </div>
+
+        </div>
+
+
+        <!-- COMPANY -->
+
+        <div class="footer-column">
+
+          <h4>
+            Company
+          </h4>
+
+          <a href="#about">
+            About
+          </a>
+
+          <a href="#founder">
+            Founder
+          </a>
+
+          <a href="#roadmap">
+            Roadmap
+          </a>
+
+          <a href="#contact">
+            Contact
+          </a>
+
+        </div>
+
+
+        <!-- SERVICES -->
+
+        <div class="footer-column">
+
+          <h4>
+            Services
+          </h4>
+
+          <a href="#services">
+            Build
+          </a>
+
+          <a href="#services">
+            Grow
+          </a>
+
+          <a href="#services">
+            Connect
+          </a>
+
+          <a href="#services">
+            Optimize
+          </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-column">
+
+          <h4>
+            Contact
+          </h4>
+
+
+          <!-- SECOND PAGE HYPERLINK -->
+
+          <a
+            href="founders-desk.html"
+            class="founder-desk-link"
+          >
+
+            To Founder’s Desk ↗
+
+          </a>
+
+
+          <!-- CONTACT DETAILS BOX -->
+
+          <div class="contact-box glass">
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-item">
+
+              <span class="contact-label">
+                EMAIL
+              </span>
+
+              <a
+                href="mailto:ayankhan11119@gmail.com"
+              >
+                ayankhan11119@gmail.com
+              </a>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="contact-item">
+
+              <span class="contact-label">
+                PHONE
+              </span>
+
+              <a
+                href="tel:+918822507629"
+              >
+                +91 8822507629
+              </a>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- FOOTER BOTTOM -->
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 AYPEX.CO
+        </span>
+
+        <span>
+          Founded by Ayan Sheikh
+        </span>
+
+        <span>
+          Build. Grow. Connect.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+    ===================================================== -->
+
+  <script>
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
+      );
+
+
+    const revealObserver =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: .12,
+
+          rootMargin:
+            "0px 0px -60px 0px"
+        }
+
+      );
+
+
+    revealElements.forEach(
+      (element) => {
+
+        revealObserver.observe(
+          element
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    const navbar =
+      document.getElementById(
+        "navbar"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+
+      () => {
+
+        if (
+          window.scrollY > 40
+        ) {
+
+          navbar.classList.add(
+            "scrolled"
+          );
+
+        } else {
+
+          navbar.classList.remove(
+            "scrolled"
+          );
+
+        }
+
+      },
+
+      {
+        passive: true
+      }
+
+    );
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuButton =
+      document.getElementById(
+        "menuButton"
+      );
+
+
+    const mobileMenu =
+      document.getElementById(
+        "mobileMenu"
+      );
+
+
+    menuButton.addEventListener(
+      "click",
+
+      () => {
+
+        mobileMenu.classList.toggle(
+          "active"
+        );
+
+      }
+
+    );
+
+
+    document
+      .querySelectorAll(
+        ".mobile-menu a"
+      )
+      .forEach(
+
+        (link) => {
+
+          link.addEventListener(
+            "click",
+
+            () => {
+
+              mobileMenu.classList.remove(
+                "active"
+              );
+
+            }
+
+          );
+
+        }
+
+      );
+
+
+  </script>
+
+
+</body>
+
+</html>
