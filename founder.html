@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Founder’s Desk — AYPEX.Co</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eeece6;
+      color: #202020;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      width: 100%;
+      height: 105px;
+      border-bottom: 1px solid #c9c6bf;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      background: #eeece6;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      border: 1.5px solid #202020;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #202020;
+      border-radius: 50%;
+      right: -4px;
+      bottom: -3px;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 5px;
+    }
+
+    .menu {
+      font-size: 35px;
+      font-weight: 200;
+      line-height: 0.6;
+      cursor: pointer;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      width: 100%;
+    }
+
+    section {
+      padding: 90px 6%;
+    }
+
+    .section-number {
+      font-size: 14px;
+      letter-spacing: 5px;
+      color: #9b9890;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid #202020;
+    }
+
+    .hero-label {
+      font-family: monospace;
+      font-size: 15px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(58px, 9vw, 130px);
+      font-weight: 400;
+      line-height: 0.95;
+      max-width: 1100px;
+      letter-spacing: -4px;
+    }
+
+    .hero h1 span {
+      font-style: italic;
+    }
+
+    .hero-description {
+      max-width: 700px;
+      margin-top: 45px;
+      font-size: 21px;
+      color: #464646;
+      line-height: 1.65;
+    }
+
+    /* =========================
+       FOUNDER
+    ========================= */
+
+    .founder-section {
+      display: grid;
+      grid-template-columns: 0.8fr 1.4fr;
+      gap: 90px;
+      border-bottom: 1px solid #202020;
+    }
+
+    .founder-label {
+      font-family: monospace;
+      font-size: 14px;
+      letter-spacing: 4px;
+      color: #9b9890;
+      text-transform: uppercase;
+    }
+
+    .founder-content h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 75px);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 35px;
+    }
+
+    .founder-content p {
+      max-width: 720px;
+      font-size: 19px;
+      color: #484848;
+      margin-bottom: 22px;
+    }
+
+    .founder-signature {
+      margin-top: 45px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-style: italic;
+    }
+
+    /* =========================
+       VISION
+    ========================= */
+
+    .vision-section {
+      border-bottom: 1px solid #202020;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid #c6c3bc;
+    }
+
+    .vision-box {
+      padding: 50px 35px;
+      min-height: 270px;
+      border-right: 1px solid #c6c3bc;
+    }
+
+    .vision-box:last-child {
+      border-right: none;
+    }
+
+    .diamond {
+      width: 14px;
+      height: 14px;
+      background: #202020;
+      transform: rotate(45deg);
+      margin-bottom: 55px;
+    }
+
+    .vision-box h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+
+    .vision-box p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* =========================
+       LEGAL CARDS
+    ========================= */
+
+    .legal-section {
+      border-bottom: 1px solid #202020;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .legal-card {
+      border: 1px solid #c6c3bc;
+      padding: 48px 42px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .legal-card .diamond {
+      margin-bottom: 48px;
+    }
+
+    .legal-card h2 {
+      font-size: 31px;
+      margin-bottom: 25px;
+      line-height: 1.2;
+    }
+
+    .legal-card p {
+      font-size: 18px;
+      color: #484848;
+      margin-bottom: 35px;
+    }
+
+    .legal-button {
+      display: inline-block;
+      border: 1.5px solid #202020;
+      padding: 17px 28px;
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      background: transparent;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .legal-button:hover {
+      background: #202020;
+      color: #eeece6;
+    }
+
+    /* =========================
+       MODALS
+    ========================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 25, 25, 0.72);
+      z-index: 100;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-box {
+      width: min(760px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #eeece6;
+      border: 1px solid #202020;
+      padding: 65px 60px;
+      position: relative;
+    }
+
+    .modal-label {
+      color: #a09d95;
+      font-family: monospace;
+      letter-spacing: 4px;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .modal-box h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 6vw, 58px);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 45px;
+    }
+
+    .modal-box p {
+      font-size: 17px;
+      color: #424242;
+      margin-bottom: 25px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      border: none;
+      background: transparent;
+      font-size: 35px;
+      cursor: pointer;
+      color: #202020;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq-section {
+      border-bottom: 1px solid #202020;
+    }
+
+    .faq-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(48px, 7vw, 85px);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 65px;
+    }
+
+    .faq-container {
+      border: 1px solid #c6c3bc;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #c6c3bc;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 32px 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      font-size: 21px;
+      font-weight: 700;
+      color: #202020;
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      font-size: 20px;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 42px;
+    }
+
+    .faq-answer p {
+      padding-bottom: 30px;
+      color: #555;
+      font-size: 17px;
+      max-width: 850px;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta-section {
+      padding-bottom: 130px;
+    }
+
+    .cta-box {
+      background: #202020;
+      color: #eeece6;
+      padding: 70px 55px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .cta-box h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 5vw, 70px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .cta-box p {
+      margin-top: 20px;
+      max-width: 600px;
+      color: #c9c7c1;
+      font-size: 17px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #eeece6;
+      color: #202020;
+      padding: 20px 30px;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 16px;
+      white-space: nowrap;
+      border: 1px solid #eeece6;
+      transition: 0.25s ease;
+    }
+
+    .cta-button:hover {
+      background: transparent;
+      color: #eeece6;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid #202020;
+      padding: 35px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: monospace;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      header {
+        height: 88px;
+        padding: 0 7%;
+      }
+
+      .brand {
+        gap: 15px;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+      }
+
+      .brand-name {
+        font-size: 23px;
+        letter-spacing: 4px;
+      }
+
+      .menu {
+        font-size: 30px;
+      }
+
+      section {
+        padding: 65px 6%;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+
+      .hero h1 {
+        font-size: clamp(52px, 15vw, 85px);
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: 18px;
+        margin-top: 30px;
+      }
+
+      .founder-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .founder-content h2 {
+        font-size: 48px;
+      }
+
+      .founder-content p {
+        font-size: 17px;
+      }
+
+      .vision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vision-box {
+        border-right: none;
+        border-bottom: 1px solid #c6c3bc;
+      }
+
+      .vision-box:last-child {
+        border-bottom: none;
+      }
+
+      .legal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .legal-card {
+        padding: 40px 30px;
+      }
+
+      .legal-card h2 {
+        font-size: 27px;
+      }
+
+      .legal-card p {
+        font-size: 17px;
+      }
+
+      .modal {
+        padding: 15px;
+      }
+
+      .modal-box {
+        padding: 55px 28px 35px;
+        max-height: 92vh;
+      }
+
+      .modal-box h2 {
+        font-size: 42px;
+        margin-bottom: 35px;
+      }
+
+      .modal-box p {
+        font-size: 16px;
+      }
+
+      .faq-title {
+        font-size: 55px;
+      }
+
+      .faq-question {
+        padding: 27px 25px;
+        font-size: 18px;
+      }
+
+      .faq-answer {
+        padding: 0 25px;
+      }
+
+      .faq-answer p {
+        font-size: 16px;
+      }
+
+      .cta-box {
+        padding: 45px 30px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta-button {
+        width: 100%;
+        text-align: center;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <a href="index.html" class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-name">AYPEX</div>
+    </a>
+
+    <div class="menu">☰</div>
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="hero-label">
+        01 — Founder’s Desk
+      </div>
+
+      <h1>
+        Built with<br>
+        <span>intention.</span>
+      </h1>
+
+      <p class="hero-description">
+        AYPEX exists to help businesses build stronger digital systems,
+        respond faster, and stay connected to every opportunity that
+        reaches their door.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         FOUNDER
+    ========================== -->
+
+    <section class="founder-section">
+
+      <div>
+        <div class="section-number">
+          02 — The Founder
+        </div>
+
+        <div class="founder-label">
+          AYPEX.Co
+        </div>
+      </div>
+
+      <div class="founder-content">
+
+        <h2>
+          The system should
+          work for the business.
+        </h2>
+
+        <p>
+          AYPEX was built around a simple observation:
+          businesses lose opportunities not because they lack
+          potential, but because important moments are often
+          missed.
+        </p>
+
+        <p>
+          A missed enquiry, an unanswered call, a delayed response,
+          or a complicated booking process can quietly become a
+          lost customer.
+        </p>
+
+        <p>
+          The goal of AYPEX is to create the infrastructure around
+          a business that keeps those moments connected.
+          Websites, AI assistance, booking systems, voice agents,
+          and business workflows are brought together into one
+          practical system.
+        </p>
+
+        <p>
+          The philosophy is simple:
+          <strong>Build. Grow. Connect.</strong>
+        </p>
+
+        <div class="founder-signature">
+          Ayan Sheikh<br>
+          <span style="font-size:16px; font-family:Arial, sans-serif; font-style:normal;">
+            Founder, AYPEX.Co
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         VISION
+    ========================== -->
+
+    <section class="vision-section">
+
+      <div class="section-number">
+        03 — The Philosophy
+      </div>
+
+      <div class="vision-grid">
+
+        <div class="vision-box">
+
+          <div class="diamond"></div>
+
+          <h3>Build.</h3>
+
+          <p>
+            Create the digital foundation a business needs
+            to present itself professionally and operate
+            efficiently.
+          </p>
+
+        </div>
+
+
+        <div class="vision-box">
+
+          <div class="diamond"></div>
+
+          <h3>Grow.</h3>
+
+          <p>
+            Turn better systems, faster responses, and
+            consistent follow-up into more opportunities
+            for sustainable growth.
+          </p>
+
+        </div>
+
+
+        <div class="vision-box">
+
+          <div class="diamond"></div>
+
+          <h3>Connect.</h3>
+
+          <p>
+            Keep businesses connected to customers through
+            websites, AI, calls, bookings, and intelligent
+            communication.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRIVACY + TERMS
+    ========================== -->
+
+    <section class="legal-section">
+
+      <div class="section-number">
+        04 — Legal
+      </div>
+
+      <div class="legal-grid">
+
+
+        <!-- PRIVACY -->
+
+        <div class="legal-card">
+
+          <div class="diamond"></div>
+
+          <h2>
+            Privacy Policy
+          </h2>
+
+          <p>
+            AYPEX uses information submitted through its
+            forms, booking systems, and business services
+            only for communication, scheduling, service
+            delivery, and system configuration.
+          </p>
+
+          <button
+            class="legal-button"
+            onclick="openModal('privacyModal')">
+            Read full policy →
+          </button>
+
+        </div>
+
+
+        <!-- TERMS -->
+
+        <div class="legal-card">
+
+          <div class="diamond"></div>
+
+          <h2>
+            Terms &amp; Onboarding Policy
+          </h2>
+
+          <p>
+            AYPEX works with a limited number of businesses
+            at a time so every system can be properly scoped,
+            built, and supported.
+          </p>
+
+          <button
+            class="legal-button"
+            onclick="openModal('termsModal')">
+            Read full terms →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================== -->
+
+    <section class="faq-section">
+
+      <div class="section-number">
+        05 — Questions
+      </div>
+
+      <h2 class="faq-title">
+        Frequently<br>
+        asked questions
+      </h2>
+
+
+      <div class="faq-container">
+
+
+        <div class="faq-item">
+
+          <button class="faq-question">
+            <span>
+              What exactly does AYPEX build?
+            </span>
+
+            <span class="faq-icon">◆</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              AYPEX builds connected digital systems for
+              businesses, which can include a website,
+              AI chatbot, booking workflow, AI voice agent,
+              and supporting business automation.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button class="faq-question">
+            <span>
+              Do I need technical skills to use it?
+            </span>
+
+            <span class="faq-icon">◆</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              No. The system is designed to operate in the
+              background while the business owner and staff
+              focus on their actual work.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button class="faq-question">
+            <span>
+              How does the AI assistant handle enquiries?
+            </span>
+
+            <span class="faq-icon">◆</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              The AI can respond to common customer questions,
+              collect relevant information, assist with
+              bookings, and route conversations that require
+              human attention.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button class="faq-question">
+            <span>
+              Can AYPEX build a system specifically for my business?
+            </span>
+
+            <span class="faq-icon">◆</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Yes. The system is scoped around the business,
+              its customer journey, existing workflow, and
+              operational requirements.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button class="faq-question">
+            <span>
+              How long does setup take?
+            </span>
+
+            <span class="faq-icon">◆</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Setup time depends on the scope of the system.
+              A timeline is discussed and agreed upon before
+              the build begins.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button class="faq-question">
+            <span>
+              What happens when AI cannot handle a lead?
+            </span>
+
+            <span class="faq-icon">◆</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Conversations that fall outside the configured
+              AI workflow can be directed toward the business
+              owner or staff for human handling.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button class="faq-question">
+            <span>
+              Why does AYPEX work with a limited number of businesses?
+            </span>
+
+            <span class="faq-icon">◆</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              AYPEX intentionally limits onboarding so each
+              system can receive proper attention during
+              planning, implementation, testing, and support.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+          <button class="faq-question">
+            <span>
+              What does the pricing structure include?
+            </span>
+
+            <span class="faq-icon">◆</span>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Pricing can include a one-time implementation
+              or build fee and an ongoing service subscription.
+              Exact scope, pricing, and timeline are discussed
+              before the engagement begins.
+            </p>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta-section">
+
+      <div class="cta-box">
+
+        <div>
+
+          <h2>
+            Ready to build<br>
+            your system?
+          </h2>
+
+          <p>
+            Start with a discovery conversation. We will
+            understand your business, identify the gaps,
+            and determine what AYPEX can build around it.
+          </p>
+
+        </div>
+
+        <a
+          href="booking.html"
+          class="cta-button">
+          Book a Discovery Call →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       PRIVACY MODAL
+  ========================== -->
+
+  <div class="modal" id="privacyModal">
+
+    <div class="modal-box">
+
+      <button
+        class="close-modal"
+        onclick="closeModal('privacyModal')">
+        ×
+      </button>
+
+      <div class="modal-label">
+        LEGAL
+      </div>
+
+      <h2>
+        Privacy Policy
+      </h2>
+
+      <p>
+        AYPEX collects information that you voluntarily
+        submit through its website forms, booking systems,
+        communication channels, or services.
+      </p>
+
+      <p>
+        This information may include your name, business
+        name, phone number, email address, booking details,
+        and other information you choose to provide.
+      </p>
+
+      <p>
+        Information is used to communicate with you,
+        schedule and prepare for discovery calls, understand
+        your business requirements, configure services,
+        provide support, and operate systems built for you.
+      </p>
+
+      <p>
+        AYPEX does not sell personal information.
+        Information may be processed by third-party tools
+        and service providers when those tools are required
+        to operate the systems provided to a client.
+      </p>
+
+      <p>
+        Such services may include hosting, calendar,
+        communication, AI, analytics, or other infrastructure
+        providers used as part of the agreed system.
+      </p>
+
+      <p>
+        AYPEX aims to use only the information reasonably
+        necessary to provide its services and communicate
+        with clients.
+      </p>
+
+      <p>
+        Requests concerning access, correction, or deletion
+        of information can be made through the official
+        AYPEX contact channel.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       TERMS MODAL
+  ========================== -->
+
+  <div class="modal" id="termsModal">
+
+    <div class="modal-box">
+
+      <button
+        class="close-modal"
+        onclick="closeModal('termsModal')">
+        ×
+      </button>
+
+      <div class="modal-label">
+        LEGAL
+      </div>
+
+      <h2>
+        Terms &amp; Onboarding Policy
+      </h2>
+
+      <p>
+        AYPEX may limit the number of businesses onboarded
+        during a given month in order to maintain quality
+        during planning, development, testing, and support.
+      </p>
+
+      <p>
+        Booking a discovery call reserves a conversation
+        and scoping opportunity. It does not automatically
+        guarantee that a build slot will be available.
+      </p>
+
+      <p>
+        A project becomes an active engagement only after
+        the scope, pricing, timeline, deliverables, and
+        applicable service terms have been discussed and
+        confirmed in writing.
+      </p>
+
+      <p>
+        Depending on the project, an engagement may include
+        a one-time build or implementation fee together with
+        an ongoing monthly service subscription.
+      </p>
+
+      <p>
+        The build fee may cover agreed development work such
+        as website implementation, chatbot configuration,
+        AI voice agent setup, integrations, and related
+        system configuration.
+      </p>
+
+      <p>
+        The ongoing subscription may cover hosting,
+        maintenance, support, infrastructure, and continuing
+        AI or third-party service usage, depending on the
+        selected package.
+      </p>
+
+      <p>
+        Any performance guarantees, refund terms, service
+        limitations, or additional conditions will apply
+        only where they have been specifically agreed upon
+        and confirmed in writing.
+      </p>
+
+      <p>
+        AYPEX reserves the right to decline or postpone an
+        engagement where the requested system falls outside
+        the available services, technical capabilities,
+        or current onboarding capacity.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* =========================
+       MODALS
+    ========================== */
+
+    function openModal(id) {
+      document.getElementById(id).classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+
+    /* Close modal by clicking outside */
+
+    document.querySelectorAll(".modal").forEach(function(modal) {
+
+      modal.addEventListener("click", function(event) {
+
+        if (event.target === modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+      });
+
+    });
+
+
+    /* Escape key closes modal */
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "Escape") {
+
+        document.querySelectorAll(".modal").forEach(function(modal) {
+          modal.classList.remove("active");
+        });
+
+        document.body.style.overflow = "";
+
+      }
+
+    });
+
+
+    /* =========================
+       FAQ ACCORDION
+    ========================== */
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(function(item) {
+
+      const question = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+
+      question.addEventListener("click", function() {
+
+        const isOpen = item.classList.contains("open");
+
+        faqItems.forEach(function(otherItem) {
+
+          otherItem.classList.remove("open");
+
+          otherItem.querySelector(".faq-answer").style.maxHeight = null;
+
+        });
+
+        if (!isOpen) {
+
+          item.classList.add("open");
+
+          answer.style.maxHeight = answer.scrollHeight + "px";
+
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
