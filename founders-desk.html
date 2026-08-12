@@ -1,0 +1,4263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Founder’s Desk | AYPEX.CO</title>
+
+  <meta
+    name="description"
+    content="Founder’s Desk of AYPEX.CO — Founded by Ayan Sheikh."
+  >
+
+  <style>
+
+    /* =====================================================
+       CORE
+    ===================================================== */
+
+    :root {
+
+      --bg: #050b16;
+      --bg2: #07111f;
+
+      --card: rgba(17,29,45,.52);
+      --card2: rgba(12,24,39,.66);
+
+      --white: #f4f7fb;
+      --muted: #96a6bb;
+
+      --cyan: #55ddff;
+      --cyan-soft: rgba(85,221,255,.16);
+
+      --purple: #9675ff;
+      --purple-soft: rgba(150,117,255,.16);
+
+      --pink: #ff86c8;
+
+      --border:
+        rgba(180,210,235,.17);
+
+      --border-bright:
+        rgba(85,221,255,.42);
+
+      --max: 1180px;
+
+    }
+
+
+    * {
+
+      margin: 0;
+      padding: 0;
+
+      box-sizing: border-box;
+
+    }
+
+
+    html {
+
+      scroll-behavior:
+        smooth;
+
+    }
+
+
+    body {
+
+      background:
+
+        radial-gradient(
+          circle at 10% 5%,
+          rgba(55,174,255,.10),
+          transparent 27%
+        ),
+
+        radial-gradient(
+          circle at 90% 35%,
+          rgba(132,89,255,.10),
+          transparent 30%
+        ),
+
+        var(--bg);
+
+      color:
+        var(--white);
+
+      font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      line-height:
+        1.6;
+
+      overflow-x:
+        hidden;
+
+    }
+
+
+    body::before {
+
+      content: "";
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      pointer-events:
+        none;
+
+      background:
+
+        linear-gradient(
+          115deg,
+          transparent 30%,
+          rgba(255,255,255,.018),
+          transparent 70%
+        );
+
+      z-index:
+        -2;
+
+    }
+
+
+    a {
+
+      color:
+        inherit;
+
+      text-decoration:
+        none;
+
+    }
+
+
+    button {
+
+      font-family:
+        inherit;
+
+    }
+
+
+    .container {
+
+      width:
+        min(92%, var(--max));
+
+      margin:
+        auto;
+
+    }
+
+
+    /* =====================================================
+       GLASS
+    ===================================================== */
+
+    .glass {
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.075),
+          rgba(255,255,255,.025)
+        );
+
+      border:
+        1px solid var(--border);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+
+      box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.04),
+
+        0 20px 70px
+        rgba(0,0,0,.15);
+
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    header {
+
+      position:
+        fixed;
+
+      top:
+        20px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      width:
+        min(92%, 1180px);
+
+      height:
+        70px;
+
+      z-index:
+        1000;
+
+      border-radius:
+        40px;
+
+      transition:
+        .35s ease;
+
+    }
+
+
+    header.scrolled {
+
+      background:
+        rgba(5,12,23,.86);
+
+      border-color:
+        rgba(85,221,255,.22);
+
+      box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.35);
+
+    }
+
+
+    .header-inner {
+
+      height:
+        100%;
+
+      padding:
+        0 20px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+    }
+
+
+    .brand {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        14px;
+
+      font-size:
+        1.15rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .16em;
+
+    }
+
+
+    .brand-mark {
+
+      width:
+        45px;
+
+      height:
+        45px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid var(--cyan);
+
+      color:
+        var(--cyan);
+
+      font-size:
+        .82rem;
+
+      box-shadow:
+        0 0 20px
+        rgba(85,221,255,.10);
+
+    }
+
+
+    .brand-dot {
+
+      color:
+        var(--cyan);
+
+    }
+
+
+    .nav-links {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        30px;
+
+      color:
+        #c1ccda;
+
+      font-size:
+        .82rem;
+
+    }
+
+
+    .nav-links a {
+
+      position:
+        relative;
+
+      transition:
+        .25s ease;
+
+    }
+
+
+    .nav-links a:hover {
+
+      color:
+        var(--cyan);
+
+    }
+
+
+    .nav-links a::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      bottom:
+        -9px;
+
+      width:
+        4px;
+
+      height:
+        4px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--cyan);
+
+      transform:
+        translateX(-50%)
+        scale(0);
+
+      transition:
+        .25s ease;
+
+    }
+
+
+    .nav-links a:hover::after {
+
+      transform:
+        translateX(-50%)
+        scale(1);
+
+    }
+
+
+    .nav-back {
+
+      padding:
+        10px 18px;
+
+      border-radius:
+        30px;
+
+      background:
+        var(--cyan);
+
+      color:
+        #04101b;
+
+      font-weight:
+        800;
+
+      font-size:
+        .78rem;
+
+      transition:
+        .25s ease;
+
+    }
+
+
+    .nav-back:hover {
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 8px 30px
+        rgba(85,221,255,.25);
+
+    }
+
+
+    /* =====================================================
+       MOBILE NAV
+    ===================================================== */
+
+    .menu-button {
+
+      display:
+        none;
+
+      width:
+        44px;
+
+      height:
+        44px;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255,255,255,.03);
+
+      color:
+        white;
+
+      cursor:
+        pointer;
+
+      font-size:
+        1.35rem;
+
+    }
+
+
+    .mobile-menu {
+
+      position:
+        fixed;
+
+      top:
+        100px;
+
+      left:
+        4%;
+
+      width:
+        92%;
+
+      padding:
+        25px;
+
+      border-radius:
+        24px;
+
+      opacity:
+        0;
+
+      pointer-events:
+        none;
+
+      transform:
+        translateY(-15px);
+
+      transition:
+        .3s ease;
+
+      z-index:
+        999;
+
+    }
+
+
+    .mobile-menu.active {
+
+      opacity:
+        1;
+
+      pointer-events:
+        auto;
+
+      transform:
+        translateY(0);
+
+    }
+
+
+    .mobile-menu a {
+
+      display:
+        block;
+
+      padding:
+        14px 5px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      color:
+        var(--muted);
+
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+
+      min-height:
+        850px;
+
+      padding:
+        180px 0 120px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      position:
+        relative;
+
+      border-bottom:
+        1px solid var(--border);
+
+    }
+
+
+    .hero-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.1fr .9fr;
+
+      gap:
+        70px;
+
+      align-items:
+        center;
+
+    }
+
+
+    .eyebrow {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      font-size:
+        .78rem;
+
+      letter-spacing:
+        .18em;
+
+      margin-bottom:
+        25px;
+
+    }
+
+
+    .eyebrow::before {
+
+      content:
+        "";
+
+      width:
+        40px;
+
+      height:
+        2px;
+
+      background:
+        var(--cyan);
+
+    }
+
+
+    .hero h1 {
+
+      font-size:
+        clamp(4.2rem, 8vw, 8rem);
+
+      line-height:
+        .84;
+
+      letter-spacing:
+        -.085em;
+
+      font-weight:
+        850;
+
+      margin-bottom:
+        35px;
+
+    }
+
+
+    .hero h1 span {
+
+      color:
+        var(--cyan);
+
+      font-style:
+        italic;
+
+    }
+
+
+    .hero-description {
+
+      max-width:
+        700px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        1.16rem;
+
+      line-height:
+        1.75;
+
+    }
+
+
+    .hero-meta {
+
+      display:
+        flex;
+
+      gap:
+        35px;
+
+      margin-top:
+        40px;
+
+      flex-wrap:
+        wrap;
+
+    }
+
+
+    .meta-item {
+
+      font-family:
+        monospace;
+
+      font-size:
+        .72rem;
+
+      color:
+        #8291a7;
+
+      letter-spacing:
+        .08em;
+
+    }
+
+
+    .meta-item span {
+
+      display:
+        block;
+
+      color:
+        var(--cyan);
+
+      margin-bottom:
+        4px;
+
+    }
+
+
+    /* =====================================================
+       HERO ORBIT
+    ===================================================== */
+
+    .founder-orbit {
+
+      position:
+        relative;
+
+      min-height:
+        470px;
+
+      border-radius:
+        30px;
+
+      overflow:
+        hidden;
+
+    }
+
+
+    .founder-orbit::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        280px;
+
+      height:
+        280px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--cyan);
+
+      filter:
+        blur(110px);
+
+      opacity:
+        .07;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      transform:
+        translate(-50%,-50%);
+
+    }
+
+
+    .orbit-one {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      width:
+        390px;
+
+      height:
+        230px;
+
+      border:
+        1px solid
+        rgba(85,221,255,.36);
+
+      border-radius:
+        50%;
+
+      transform:
+        translate(-50%,-50%)
+        rotate(-20deg);
+
+      animation:
+        orbitFloat 8s ease-in-out infinite;
+
+    }
+
+
+    .orbit-two {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      width:
+        440px;
+
+      height:
+        260px;
+
+      border:
+        1px solid
+        rgba(150,117,255,.35);
+
+      border-radius:
+        50%;
+
+      transform:
+        translate(-50%,-50%)
+        rotate(28deg);
+
+      animation:
+        orbitFloat2 10s ease-in-out infinite;
+
+    }
+
+
+    .orbit-ring {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      width:
+        210px;
+
+      height:
+        210px;
+
+      border:
+        2px dashed
+        rgba(85,221,255,.58);
+
+      border-radius:
+        50%;
+
+      transform:
+        translate(-50%,-50%);
+
+      animation:
+        rotateClockwise 12s linear infinite;
+
+    }
+
+
+    .orbit-core {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      width:
+        145px;
+
+      height:
+        145px;
+
+      border:
+        1px solid var(--cyan);
+
+      border-radius:
+        50%;
+
+      transform:
+        translate(-50%,-50%);
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      background:
+        rgba(3,11,20,.68);
+
+      backdrop-filter:
+        blur(15px);
+
+      box-shadow:
+        0 0 40px
+        rgba(85,221,255,.12);
+
+      z-index:
+        5;
+
+      text-align:
+        center;
+
+    }
+
+
+    .orbit-core strong {
+
+      font-family:
+        monospace;
+
+      letter-spacing:
+        .13em;
+
+      font-size:
+        .85rem;
+
+    }
+
+
+    .orbit-core small {
+
+      display:
+        block;
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      font-size:
+        .58rem;
+
+      margin-top:
+        5px;
+
+    }
+
+
+    .orbit-node {
+
+      position:
+        absolute;
+
+      width:
+        82px;
+
+      height:
+        82px;
+
+      border:
+        1px solid
+        rgba(180,210,235,.28);
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(9,20,34,.72);
+
+      backdrop-filter:
+        blur(15px);
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      font-family:
+        monospace;
+
+      font-size:
+        .6rem;
+
+      z-index:
+        6;
+
+    }
+
+
+    .node-one {
+
+      top:
+        20%;
+
+      left:
+        8%;
+
+    }
+
+
+    .node-two {
+
+      top:
+        19%;
+
+      right:
+        8%;
+
+    }
+
+
+    .node-three {
+
+      bottom:
+        19%;
+
+      left:
+        9%;
+
+    }
+
+
+    .node-four {
+
+      bottom:
+        17%;
+
+      right:
+        8%;
+
+    }
+
+
+    .node-dot {
+
+      position:
+        absolute;
+
+      width:
+        9px;
+
+      height:
+        9px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--cyan);
+
+      top:
+        -3px;
+
+      right:
+        12px;
+
+      box-shadow:
+        0 0 15px
+        var(--cyan);
+
+    }
+
+
+    .orbit-footer {
+
+      position:
+        absolute;
+
+      left:
+        25px;
+
+      right:
+        25px;
+
+      bottom:
+        20px;
+
+      padding-top:
+        14px;
+
+      border-top:
+        1px solid var(--border);
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      color:
+        #8291a7;
+
+      font-family:
+        monospace;
+
+      font-size:
+        .68rem;
+
+    }
+
+
+    @keyframes rotateClockwise {
+
+      from {
+
+        transform:
+          translate(-50%,-50%)
+          rotate(0deg);
+
+      }
+
+      to {
+
+        transform:
+          translate(-50%,-50%)
+          rotate(360deg);
+
+      }
+
+    }
+
+
+    @keyframes orbitFloat {
+
+      0%,100% {
+
+        transform:
+          translate(-50%,-50%)
+          rotate(-20deg)
+          scale(1);
+
+      }
+
+      50% {
+
+        transform:
+          translate(-50%,-50%)
+          rotate(-13deg)
+          scale(1.04);
+
+      }
+
+    }
+
+
+    @keyframes orbitFloat2 {
+
+      0%,100% {
+
+        transform:
+          translate(-50%,-50%)
+          rotate(28deg)
+          scale(1);
+
+      }
+
+      50% {
+
+        transform:
+          translate(-50%,-50%)
+          rotate(35deg)
+          scale(.96);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       GENERAL SECTIONS
+    ===================================================== */
+
+    section {
+
+      padding:
+        120px 0;
+
+    }
+
+
+    .section-line {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      font-family:
+        monospace;
+
+      color:
+        var(--cyan);
+
+      font-size:
+        .76rem;
+
+      letter-spacing:
+        .15em;
+
+      margin-bottom:
+        22px;
+
+    }
+
+
+    .section-line::before {
+
+      content:
+        "";
+
+      width:
+        40px;
+
+      height:
+        2px;
+
+      background:
+        var(--cyan);
+
+    }
+
+
+    .section-title {
+
+      font-size:
+        clamp(3rem, 6vw, 6rem);
+
+      line-height:
+        .9;
+
+      letter-spacing:
+        -.075em;
+
+      font-weight:
+        850;
+
+      max-width:
+        1000px;
+
+      margin-bottom:
+        30px;
+
+    }
+
+
+    .cyan {
+
+      color:
+        var(--cyan);
+
+    }
+
+
+    .section-description {
+
+      max-width:
+        760px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        1.12rem;
+
+      line-height:
+        1.75;
+
+    }
+
+
+    /* =====================================================
+       FOUNDER STORY
+    ===================================================== */
+
+    .story-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        .75fr 1.25fr;
+
+      gap:
+        70px;
+
+      margin-top:
+        55px;
+
+      align-items:
+        start;
+
+    }
+
+
+    .story-label {
+
+      font-family:
+        monospace;
+
+      color:
+        #8291a7;
+
+      font-size:
+        .74rem;
+
+      letter-spacing:
+        .12em;
+
+    }
+
+
+    .story-content {
+
+      padding:
+        40px;
+
+      border-radius:
+        25px;
+
+    }
+
+
+    .story-content h2 {
+
+      font-size:
+        clamp(2.6rem, 5vw, 5rem);
+
+      line-height:
+        .92;
+
+      letter-spacing:
+        -.07em;
+
+      margin-bottom:
+        35px;
+
+    }
+
+
+    .story-content p {
+
+      color:
+        var(--muted);
+
+      font-size:
+        1.05rem;
+
+      margin-bottom:
+        22px;
+
+    }
+
+
+    .founder-signature {
+
+      margin-top:
+        45px;
+
+      padding-top:
+        25px;
+
+      border-top:
+        1px solid var(--border);
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        1.6rem;
+
+      font-style:
+        italic;
+
+    }
+
+
+    .founder-signature small {
+
+      display:
+        block;
+
+      margin-top:
+        6px;
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      font-size:
+        .68rem;
+
+      font-style:
+        normal;
+
+      letter-spacing:
+        .1em;
+
+    }
+
+
+    /* =====================================================
+       VISION CARDS
+    ===================================================== */
+
+    .vision-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:
+        18px;
+
+      margin-top:
+        55px;
+
+    }
+
+
+    .vision-box {
+
+      min-height:
+        330px;
+
+      padding:
+        30px;
+
+      border-radius:
+        25px;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      transition:
+        .45s cubic-bezier(.2,.8,.2,1);
+
+    }
+
+
+    .vision-box:hover {
+
+      transform:
+        translateY(-9px);
+
+      border-color:
+        var(--border-bright);
+
+      box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.28);
+
+    }
+
+
+    .vision-number {
+
+      font-family:
+        monospace;
+
+      color:
+        var(--cyan);
+
+      font-size:
+        .76rem;
+
+      letter-spacing:
+        .1em;
+
+    }
+
+
+    .vision-box h3 {
+
+      font-size:
+        clamp(2.5rem, 4vw, 4.2rem);
+
+      letter-spacing:
+        -.07em;
+
+      margin:
+        70px 0 18px;
+
+    }
+
+
+    .vision-box p {
+
+      color:
+        var(--muted);
+
+      font-size:
+        1rem;
+
+    }
+
+
+    .vision-box::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        180px;
+
+      height:
+        180px;
+
+      border:
+        1px solid
+        rgba(85,221,255,.15);
+
+      border-radius:
+        50%;
+
+      right:
+        -75px;
+
+      bottom:
+        -70px;
+
+      transition:
+        .5s ease;
+
+    }
+
+
+    .vision-box:hover::after {
+
+      transform:
+        scale(1.3);
+
+      border-color:
+        rgba(85,221,255,.3);
+
+    }
+
+
+    /* =====================================================
+       LEGAL
+    ===================================================== */
+
+    .legal-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2,1fr);
+
+      gap:
+        18px;
+
+      margin-top:
+        55px;
+
+    }
+
+
+    .legal-card {
+
+      padding:
+        35px;
+
+      min-height:
+        350px;
+
+      border-radius:
+        25px;
+
+      transition:
+        .4s ease;
+
+    }
+
+
+    .legal-card:hover {
+
+      transform:
+        translateY(-8px);
+
+      border-color:
+        var(--border-bright);
+
+    }
+
+
+    .card-number {
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      font-size:
+        .76rem;
+
+      letter-spacing:
+        .1em;
+
+    }
+
+
+    .legal-card h2 {
+
+      font-size:
+        clamp(2rem, 3.5vw, 3.4rem);
+
+      line-height:
+        .95;
+
+      letter-spacing:
+        -.06em;
+
+      margin:
+        65px 0 20px;
+
+    }
+
+
+    .legal-card p {
+
+      color:
+        var(--muted);
+
+      font-size:
+        1rem;
+
+      max-width:
+        600px;
+
+      margin-bottom:
+        30px;
+
+    }
+
+
+    .legal-button {
+
+      border:
+        1px solid
+        rgba(85,221,255,.35);
+
+      background:
+        rgba(85,221,255,.05);
+
+      color:
+        var(--cyan);
+
+      padding:
+        14px 20px;
+
+      border-radius:
+        12px;
+
+      font-family:
+        monospace;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      transition:
+        .3s ease;
+
+    }
+
+
+    .legal-button:hover {
+
+      background:
+        var(--cyan);
+
+      color:
+        #04101b;
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 10px 30px
+        rgba(85,221,255,.18);
+
+    }
+
+
+    /* =====================================================
+       MODALS
+    ===================================================== */
+
+    .modal {
+
+      display:
+        none;
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      background:
+        rgba(1,7,15,.76);
+
+      backdrop-filter:
+        blur(12px);
+
+      z-index:
+        2000;
+
+      padding:
+        25px;
+
+      overflow-y:
+        auto;
+
+    }
+
+
+    .modal.active {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+    }
+
+
+    .modal-box {
+
+      width:
+        min(760px,100%);
+
+      max-height:
+        90vh;
+
+      overflow-y:
+        auto;
+
+      padding:
+        50px;
+
+      border-radius:
+        28px;
+
+      position:
+        relative;
+
+    }
+
+
+    .modal-label {
+
+      color:
+        var(--cyan);
+
+      font-family:
+        monospace;
+
+      letter-spacing:
+        .15em;
+
+      font-size:
+        .72rem;
+
+      margin-bottom:
+        20px;
+
+    }
+
+
+    .modal-box h2 {
+
+      font-size:
+        clamp(3rem, 6vw, 5rem);
+
+      line-height:
+        .9;
+
+      letter-spacing:
+        -.07em;
+
+      margin-bottom:
+        40px;
+
+    }
+
+
+    .modal-box p {
+
+      color:
+        var(--muted);
+
+      font-size:
+        1rem;
+
+      margin-bottom:
+        22px;
+
+    }
+
+
+    .close-modal {
+
+      position:
+        absolute;
+
+      top:
+        20px;
+
+      right:
+        25px;
+
+      width:
+        42px;
+
+      height:
+        42px;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255,255,255,.03);
+
+      color:
+        white;
+
+      font-size:
+        1.5rem;
+
+      cursor:
+        pointer;
+
+      transition:
+        .25s ease;
+
+    }
+
+
+    .close-modal:hover {
+
+      border-color:
+        var(--cyan);
+
+      color:
+        var(--cyan);
+
+      transform:
+        rotate(90deg);
+
+    }
+
+
+    /* =====================================================
+       FAQ
+    ===================================================== */
+
+    .faq-container {
+
+      margin-top:
+        55px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        12px;
+
+    }
+
+
+    .faq-item {
+
+      border-radius:
+        20px;
+
+      overflow:
+        hidden;
+
+      transition:
+        .35s ease;
+
+    }
+
+
+    .faq-item:hover {
+
+      border-color:
+        rgba(85,221,255,.3);
+
+    }
+
+
+    .faq-question {
+
+      width:
+        100%;
+
+      background:
+        transparent;
+
+      border:
+        none;
+
+      padding:
+        25px 28px;
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      text-align:
+        left;
+
+      color:
+        white;
+
+      font-size:
+        1.05rem;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+    }
+
+
+    .faq-icon {
+
+      color:
+        var(--cyan);
+
+      font-size:
+        1.2rem;
+
+      transition:
+        .3s ease;
+
+      margin-left:
+        20px;
+
+    }
+
+
+    .faq-answer {
+
+      max-height:
+        0;
+
+      overflow:
+        hidden;
+
+      transition:
+        max-height .4s ease;
+
+    }
+
+
+    .faq-answer p {
+
+      padding:
+        0 28px 25px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .98rem;
+
+      max-width:
+        850px;
+
+    }
+
+
+    .faq-item.open {
+
+      border-color:
+        rgba(85,221,255,.3);
+
+    }
+
+
+    .faq-item.open
+    .faq-icon {
+
+      transform:
+        rotate(45deg);
+
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .cta-box {
+
+      padding:
+        70px 55px;
+
+      border-radius:
+        30px;
+
+      text-align:
+        center;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+    }
+
+
+    .cta-box::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        300px;
+
+      height:
+        300px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--cyan);
+
+      filter:
+        blur(120px);
+
+      opacity:
+        .07;
+
+      left:
+        -100px;
+
+      bottom:
+        -150px;
+
+    }
+
+
+    .cta-box::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        300px;
+
+      height:
+        300px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--purple);
+
+      filter:
+        blur(120px);
+
+      opacity:
+        .08;
+
+      right:
+        -100px;
+
+      bottom:
+        -150px;
+
+    }
+
+
+    .cta-box h2 {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      font-size:
+        clamp(3rem,6vw,6rem);
+
+      line-height:
+        .9;
+
+      letter-spacing:
+        -.07em;
+
+      margin:
+        20px auto 25px;
+
+    }
+
+
+    .cta-box h2 span {
+
+      color:
+        var(--cyan);
+
+    }
+
+
+    .cta-box p {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        680px;
+
+      margin:
+        auto;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    .cta-button {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      margin-top:
+        30px;
+
+      padding:
+        17px 25px;
+
+      border-radius:
+        14px;
+
+      background:
+        var(--cyan);
+
+      color:
+        #04101b;
+
+      font-weight:
+        800;
+
+      transition:
+        .3s ease;
+
+    }
+
+
+    .cta-button:hover {
+
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 15px 45px
+        rgba(85,221,255,.25);
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      margin-top:
+        80px;
+
+      padding:
+        35px 0;
+
+      border-top:
+        1px solid var(--border);
+
+    }
+
+
+    .footer-inner {
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap:
+        20px;
+
+      color:
+        #6f8096;
+
+      font-family:
+        monospace;
+
+      font-size:
+        .72rem;
+
+      flex-wrap:
+        wrap;
+
+    }
+
+
+    .footer-inner a:hover {
+
+      color:
+        var(--cyan);
+
+    }
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    .reveal {
+
+      opacity:
+        0;
+
+      transform:
+        translateY(50px);
+
+      transition:
+        opacity .9s cubic-bezier(.2,.8,.2,1),
+        transform .9s cubic-bezier(.2,.8,.2,1);
+
+    }
+
+
+    .reveal-left {
+
+      opacity:
+        0;
+
+      transform:
+        translateX(-55px);
+
+      transition:
+        opacity .9s ease,
+        transform .9s ease;
+
+    }
+
+
+    .reveal-right {
+
+      opacity:
+        0;
+
+      transform:
+        translateX(55px);
+
+      transition:
+        opacity .9s ease,
+        transform .9s ease;
+
+    }
+
+
+    .visible {
+
+      opacity:
+        1;
+
+      transform:
+        translate(0,0);
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .nav-links,
+      .nav-back {
+
+        display:
+          none;
+
+      }
+
+
+      .menu-button {
+
+        display:
+          grid;
+
+        place-items:
+          center;
+
+      }
+
+
+      .hero-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .hero {
+
+        padding-top:
+          150px;
+
+      }
+
+
+      .story-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .vision-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .legal-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      section {
+
+        padding:
+          90px 0;
+
+      }
+
+
+      header {
+
+        top:
+          12px;
+
+      }
+
+
+      .hero {
+
+        min-height:
+          auto;
+
+        padding:
+          145px 0 90px;
+
+      }
+
+
+      .hero h1 {
+
+        font-size:
+          clamp(4rem,18vw,6rem);
+
+      }
+
+
+      .hero-description {
+
+        font-size:
+          1rem;
+
+      }
+
+
+      .founder-orbit {
+
+        min-height:
+          400px;
+
+      }
+
+
+      .orbit-one {
+
+        width:
+          300px;
+
+        height:
+          190px;
+
+      }
+
+
+      .orbit-two {
+
+        width:
+          340px;
+
+        height:
+          210px;
+
+      }
+
+
+      .orbit-ring {
+
+        width:
+          165px;
+
+        height:
+          165px;
+
+      }
+
+
+      .orbit-core {
+
+        width:
+          115px;
+
+        height:
+          115px;
+
+      }
+
+
+      .orbit-node {
+
+        width:
+          65px;
+
+        height:
+          65px;
+
+        font-size:
+          .52rem;
+
+      }
+
+
+      .node-one {
+
+        left:
+          2%;
+
+      }
+
+
+      .node-two {
+
+        right:
+          2%;
+
+      }
+
+
+      .node-three {
+
+        left:
+          2%;
+
+      }
+
+
+      .node-four {
+
+        right:
+          2%;
+
+      }
+
+
+      .story-content {
+
+        padding:
+          28px;
+
+      }
+
+
+      .legal-card {
+
+        min-height:
+          auto;
+
+      }
+
+
+      .modal {
+
+        padding:
+          15px;
+
+      }
+
+
+      .modal-box {
+
+        padding:
+          45px 25px 30px;
+
+      }
+
+
+      .cta-box {
+
+        padding:
+          60px 25px;
+
+      }
+
+
+      .footer-inner {
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
+      }
+
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+
+        animation:
+          none !important;
+
+        transition:
+          none !important;
+
+        scroll-behavior:
+          auto !important;
+
+      }
+
+
+      .reveal,
+      .reveal-left,
+      .reveal-right {
+
+        opacity:
+          1;
+
+        transform:
+          none;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
+
+  <header
+    class="glass"
+    id="navbar"
+  >
+
+    <div class="header-inner">
+
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <span class="brand-mark">
+          A/
+        </span>
+
+        <span>
+          AYPEX
+          <span class="brand-dot">
+            .CO
+          </span>
+        </span>
+
+      </a>
+
+
+      <nav class="nav-links">
+
+        <a href="index.html">
+          HOME
+        </a>
+
+        <a href="#founder">
+          FOUNDER
+        </a>
+
+        <a href="#vision">
+          VISION
+        </a>
+
+        <a href="#legal">
+          LEGAL
+        </a>
+
+        <a href="#faq">
+          FAQ
+        </a>
+
+      </nav>
+
+
+      <a
+        href="index.html"
+        class="nav-back"
+      >
+        ← AYPEX.CO
+      </a>
+
+
+      <button
+        class="menu-button"
+        id="menuButton"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- MOBILE MENU -->
+
+  <div
+    class="mobile-menu glass"
+    id="mobileMenu"
+  >
+
+    <a href="index.html">
+      HOME
+    </a>
+
+    <a href="#founder">
+      FOUNDER
+    </a>
+
+    <a href="#vision">
+      VISION
+    </a>
+
+    <a href="#legal">
+      LEGAL
+    </a>
+
+    <a href="#faq">
+      FAQ
+    </a>
+
+  </div>
+
+
+  <main>
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-grid">
+
+
+          <div class="reveal">
+
+            <div class="eyebrow">
+              FOUNDER'S DESK / AYPEX.CO
+            </div>
+
+
+            <h1>
+
+              Built with
+              <span>
+                intention.
+              </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+              AYPEX exists to help businesses build stronger
+              digital systems, respond faster, and stay
+              connected to every opportunity that reaches
+              their door.
+
+            </p>
+
+
+            <div class="hero-meta">
+
+              <div class="meta-item">
+
+                <span>
+                  FOUNDER
+                </span>
+
+                AYAN SHEIKH
+
+              </div>
+
+
+              <div class="meta-item">
+
+                <span>
+                  PRINCIPLE
+                </span>
+
+                BUILD. GROW. CONNECT.
+
+              </div>
+
+
+              <div class="meta-item">
+
+                <span>
+                  SYSTEM
+                </span>
+
+                ACTIVE
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- ORBITAL VISUAL -->
+
+          <div
+            class="founder-orbit glass reveal-right"
+          >
+
+            <div class="orbit-one"></div>
+
+            <div class="orbit-two"></div>
+
+            <div class="orbit-ring"></div>
+
+
+            <div class="orbit-core">
+
+              <div>
+
+                <strong>
+                  AYPEX
+                </strong>
+
+                <small>
+                  FOUNDER SYSTEM
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="orbit-node node-one">
+
+              <span class="node-dot"></span>
+
+              VISION
+
+            </div>
+
+
+            <div class="orbit-node node-two">
+
+              <span class="node-dot"></span>
+
+              BUILD
+
+            </div>
+
+
+            <div class="orbit-node node-three">
+
+              <span class="node-dot"></span>
+
+              GROW
+
+            </div>
+
+
+            <div class="orbit-node node-four">
+
+              <span class="node-dot"></span>
+
+              CONNECT
+
+            </div>
+
+
+            <div class="orbit-footer">
+
+              <span>
+                FOUNDER / BUSINESS
+              </span>
+
+              <span>
+                FORWARD MOTION
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOUNDER
+    ===================================================== -->
+
+    <section id="founder">
+
+      <div class="container">
+
+
+        <div class="reveal">
+
+          <div class="section-line">
+            01 / THE FOUNDER
+          </div>
+
+
+          <h2 class="section-title">
+
+            The system should
+            <span class="cyan">
+              work for the business.
+            </span>
+
+          </h2>
+
+        </div>
+
+
+        <div class="story-grid">
+
+
+          <div class="story-label reveal-left">
+
+            AYAN SHEIKH<br><br>
+
+            FOUNDER<br>
+            AYPEX.CO
+
+          </div>
+
+
+          <div
+            class="story-content glass reveal-right"
+          >
+
+            <p>
+
+              AYPEX was built around a simple observation:
+              businesses lose opportunities not because they
+              lack potential, but because important moments
+              are often missed.
+
+            </p>
+
+
+            <p>
+
+              A missed enquiry, an unanswered call, a delayed
+              response, or a complicated booking process can
+              quietly become a lost customer.
+
+            </p>
+
+
+            <p>
+
+              The goal of AYPEX is to create the infrastructure
+              around a business that keeps those moments
+              connected.
+
+            </p>
+
+
+            <p>
+
+              Websites, AI assistance, booking systems,
+              voice agents, and business workflows can be
+              brought together into one practical system.
+
+            </p>
+
+
+            <p>
+
+              The philosophy is simple:
+
+              <strong class="cyan">
+                Build. Grow. Connect.
+              </strong>
+
+            </p>
+
+
+            <div class="founder-signature">
+
+              Ayan Sheikh
+
+              <small>
+                FOUNDER / AYPEX.CO
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VISION
+    ===================================================== -->
+
+    <section id="vision">
+
+      <div class="container">
+
+
+        <div class="reveal">
+
+          <div class="section-line">
+            02 / THE PHILOSOPHY
+          </div>
+
+
+          <h2 class="section-title">
+
+            Three principles.
+            <span class="cyan">
+              One direction.
+            </span>
+
+          </h2>
+
+
+          <p class="section-description">
+
+            The foundation behind every system AYPEX builds.
+
+          </p>
+
+        </div>
+
+
+        <div class="vision-grid">
+
+
+          <article
+            class="vision-box glass reveal"
+          >
+
+            <div class="vision-number">
+              01 / 03
+            </div>
+
+
+            <h3>
+              Build.
+            </h3>
+
+
+            <p>
+
+              Create the digital foundation a business needs
+              to present itself professionally and operate
+              efficiently.
+
+            </p>
+
+          </article>
+
+
+          <article
+            class="vision-box glass reveal"
+            style="transition-delay:.1s"
+          >
+
+            <div class="vision-number">
+              02 / 03
+            </div>
+
+
+            <h3>
+              Grow.
+            </h3>
+
+
+            <p>
+
+              Turn better systems, faster responses, and
+              consistent follow-up into more opportunities
+              for sustainable growth.
+
+            </p>
+
+          </article>
+
+
+          <article
+            class="vision-box glass reveal"
+            style="transition-delay:.2s"
+          >
+
+            <div class="vision-number">
+              03 / 03
+            </div>
+
+
+            <h3>
+              Connect.
+            </h3>
+
+
+            <p>
+
+              Keep businesses connected to customers through
+              websites, AI, calls, bookings, and intelligent
+              communication.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LEGAL
+    ===================================================== -->
+
+    <section id="legal">
+
+      <div class="container">
+
+
+        <div class="reveal">
+
+          <div class="section-line">
+            03 / LEGAL
+          </div>
+
+
+          <h2 class="section-title">
+
+            Clear systems.
+            <span class="cyan">
+              Clear terms.
+            </span>
+
+          </h2>
+
+        </div>
+
+
+        <div class="legal-grid">
+
+
+          <article
+            class="legal-card glass reveal"
+          >
+
+            <div class="card-number">
+              01 / POLICY
+            </div>
+
+
+            <h2>
+              Privacy<br>
+              Policy
+            </h2>
+
+
+            <p>
+
+              Information submitted through AYPEX forms,
+              bookings, communication channels, and services
+              is used for communication, scheduling, service
+              delivery, and system configuration.
+
+            </p>
+
+
+            <button
+              class="legal-button"
+              onclick="openModal('privacyModal')"
+            >
+
+              Read full policy →
+
+            </button>
+
+          </article>
+
+
+          <article
+            class="legal-card glass reveal"
+            style="transition-delay:.12s"
+          >
+
+            <div class="card-number">
+              02 / TERMS
+            </div>
+
+
+            <h2>
+              Terms &
+              Onboarding
+            </h2>
+
+
+            <p>
+
+              AYPEX works with a limited number of businesses
+              at a time so every system can be properly scoped,
+              built, tested, and supported.
+
+            </p>
+
+
+            <button
+              class="legal-button"
+              onclick="openModal('termsModal')"
+            >
+
+              Read full terms →
+
+            </button>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FAQ
+    ===================================================== -->
+
+    <section id="faq">
+
+      <div class="container">
+
+
+        <div class="reveal">
+
+          <div class="section-line">
+            04 / QUESTIONS
+          </div>
+
+
+          <h2 class="section-title">
+
+            Frequently
+            <span class="cyan">
+              asked.
+            </span>
+
+          </h2>
+
+        </div>
+
+
+        <div class="faq-container">
+
+
+          <div
+            class="faq-item glass reveal"
+          >
+
+            <button class="faq-question">
+
+              <span>
+                What exactly does AYPEX build?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                AYPEX builds connected digital systems for
+                businesses, which can include a website,
+                AI chatbot, booking workflow, AI voice agent,
+                and supporting business automation.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="faq-item glass reveal"
+            style="transition-delay:.08s"
+          >
+
+            <button class="faq-question">
+
+              <span>
+                Do I need technical skills to use it?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                No. The system is designed to operate in the
+                background while the business owner and staff
+                focus on their actual work.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="faq-item glass reveal"
+            style="transition-delay:.16s"
+          >
+
+            <button class="faq-question">
+
+              <span>
+                How does the AI assistant handle enquiries?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                The AI can respond to common customer questions,
+                collect relevant information, assist with
+                bookings, and route conversations that require
+                human attention.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="faq-item glass reveal"
+            style="transition-delay:.24s"
+          >
+
+            <button class="faq-question">
+
+              <span>
+                Can AYPEX build a system specifically for my business?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Yes. The system is scoped around the business,
+                its customer journey, existing workflow, and
+                operational requirements.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="faq-item glass reveal"
+            style="transition-delay:.32s"
+          >
+
+            <button class="faq-question">
+
+              <span>
+                How long does setup take?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Setup time depends on the scope of the system.
+                A timeline is discussed and agreed upon before
+                the build begins.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="faq-item glass reveal"
+            style="transition-delay:.4s"
+          >
+
+            <button class="faq-question">
+
+              <span>
+                What happens when AI cannot handle a lead?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Conversations that fall outside the configured
+                AI workflow can be directed toward the business
+                owner or staff for human handling.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="faq-item glass reveal"
+            style="transition-delay:.48s"
+          >
+
+            <button class="faq-question">
+
+              <span>
+                Why does AYPEX work with a limited number of businesses?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                AYPEX intentionally limits onboarding so each
+                system can receive proper attention during
+                planning, implementation, testing, and support.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="faq-item glass reveal"
+            style="transition-delay:.56s"
+          >
+
+            <button class="faq-question">
+
+              <span>
+                What does the pricing structure include?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Pricing can include a one-time implementation
+                or build fee and an ongoing monthly service
+                subscription. Exact scope, pricing, and
+                timeline are discussed before the engagement
+                begins.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+
+        <div
+          class="cta-box glass reveal"
+        >
+
+          <div class="section-line"
+               style="justify-content:center">
+
+            AYPEX.CO
+
+          </div>
+
+
+          <h2>
+
+            Ready to build
+            your
+            <span>
+              system?
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            Start with a discovery conversation. Understand
+            the gaps, identify the opportunities, and determine
+            what AYPEX can build around your business.
+
+          </p>
+
+
+          <a
+            href="booking.html"
+            class="cta-button"
+          >
+
+            Book a Discovery Call
+            ↗
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       PRIVACY MODAL
+  ===================================================== -->
+
+  <div
+    class="modal"
+    id="privacyModal"
+  >
+
+    <div class="modal-box glass">
+
+
+      <button
+        class="close-modal"
+        onclick="closeModal('privacyModal')"
+      >
+        ×
+      </button>
+
+
+      <div class="modal-label">
+        01 / PRIVACY
+      </div>
+
+
+      <h2>
+        Privacy<br>
+        Policy
+      </h2>
+
+
+      <p>
+
+        AYPEX collects information that you voluntarily
+        submit through its website forms, booking systems,
+        communication channels, or services.
+
+      </p>
+
+
+      <p>
+
+        This information may include your name, business
+        name, phone number, email address, booking details,
+        and other information you choose to provide.
+
+      </p>
+
+
+      <p>
+
+        Information is used to communicate with you,
+        schedule and prepare for discovery calls, understand
+        your business requirements, configure services,
+        provide support, and operate systems built for you.
+
+      </p>
+
+
+      <p>
+
+        AYPEX does not sell personal information.
+        Information may be processed by third-party tools
+        and service providers when those tools are required
+        to operate the systems provided to a client.
+
+      </p>
+
+
+      <p>
+
+        Such services may include hosting, calendar,
+        communication, AI, analytics, or other infrastructure
+        providers used as part of the agreed system.
+
+      </p>
+
+
+      <p>
+
+        AYPEX aims to use only the information reasonably
+        necessary to provide its services and communicate
+        with clients.
+
+      </p>
+
+
+      <p>
+
+        Requests concerning access, correction, or deletion
+        of information can be made through the official
+        AYPEX contact channel.
+
+      </p>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       TERMS MODAL
+  ===================================================== -->
+
+  <div
+    class="modal"
+    id="termsModal"
+  >
+
+    <div class="modal-box glass">
+
+
+      <button
+        class="close-modal"
+        onclick="closeModal('termsModal')"
+      >
+        ×
+      </button>
+
+
+      <div class="modal-label">
+        02 / TERMS
+      </div>
+
+
+      <h2>
+        Terms &
+        Onboarding
+      </h2>
+
+
+      <p>
+
+        AYPEX may limit the number of businesses onboarded
+        during a given month in order to maintain quality
+        during planning, development, testing, and support.
+
+      </p>
+
+
+      <p>
+
+        Booking a discovery call reserves a conversation
+        and scoping opportunity. It does not automatically
+        guarantee that a build slot will be available.
+
+      </p>
+
+
+      <p>
+
+        A project becomes an active engagement only after
+        the scope, pricing, timeline, deliverables, and
+        applicable service terms have been discussed and
+        confirmed in writing.
+
+      </p>
+
+
+      <p>
+
+        Depending on the project, an engagement may include
+        a one-time build or implementation fee together with
+        an ongoing monthly service subscription.
+
+      </p>
+
+
+      <p>
+
+        The build fee may cover agreed development work such
+        as website implementation, chatbot configuration,
+        AI voice agent setup, integrations, and related
+        system configuration.
+
+      </p>
+
+
+      <p>
+
+        The ongoing subscription may cover hosting,
+        maintenance, support, infrastructure, and continuing
+        AI or third-party service usage, depending on the
+        selected package.
+
+      </p>
+
+
+      <p>
+
+        Any performance guarantees, refund terms, service
+        limitations, or additional conditions will apply
+        only where they have been specifically agreed upon
+        and confirmed in writing.
+
+      </p>
+
+
+      <p>
+
+        AYPEX reserves the right to decline or postpone an
+        engagement where the requested system falls outside
+        the available services, technical capabilities,
+        or current onboarding capacity.
+
+      </p>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <span>
+          © 2026 AYPEX.CO
+        </span>
+
+
+        <span>
+          Founded by Ayan Sheikh
+        </span>
+
+
+        <span>
+          Build. Grow. Connect.
+        </span>
+
+
+        <a href="index.html">
+          ← Back to AYPEX.CO
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
+  <script>
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
+      );
+
+
+    const revealObserver =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach(
+            (entry) => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.classList.add(
+                  "visible"
+                );
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+
+        {
+          threshold:
+            .12,
+
+          rootMargin:
+            "0px 0px -60px 0px"
+        }
+
+      );
+
+
+    revealElements.forEach(
+      (element) => {
+
+        revealObserver.observe(
+          element
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    const navbar =
+      document.getElementById(
+        "navbar"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+
+      () => {
+
+        if (
+          window.scrollY > 40
+        ) {
+
+          navbar.classList.add(
+            "scrolled"
+          );
+
+        } else {
+
+          navbar.classList.remove(
+            "scrolled"
+          );
+
+        }
+
+      },
+
+      {
+        passive:
+          true
+      }
+
+    );
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuButton =
+      document.getElementById(
+        "menuButton"
+      );
+
+
+    const mobileMenu =
+      document.getElementById(
+        "mobileMenu"
+      );
+
+
+    menuButton.addEventListener(
+      "click",
+
+      () => {
+
+        mobileMenu.classList.toggle(
+          "active"
+        );
+
+      }
+
+    );
+
+
+    document
+      .querySelectorAll(
+        ".mobile-menu a"
+      )
+      .forEach(
+
+        (link) => {
+
+          link.addEventListener(
+            "click",
+
+            () => {
+
+              mobileMenu.classList.remove(
+                "active"
+              );
+
+            }
+
+          );
+
+        }
+
+      );
+
+
+    /* =====================================================
+       MODALS
+    ===================================================== */
+
+    function openModal(id) {
+
+      document
+        .getElementById(id)
+        .classList.add("active");
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    function closeModal(id) {
+
+      document
+        .getElementById(id)
+        .classList.remove("active");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    document
+      .querySelectorAll(".modal")
+      .forEach(
+
+        (modal) => {
+
+          modal.addEventListener(
+            "click",
+
+            (event) => {
+
+              if (
+                event.target === modal
+              ) {
+
+                modal.classList.remove(
+                  "active"
+                );
+
+                document.body.style.overflow =
+                  "";
+
+              }
+
+            }
+
+          );
+
+        }
+
+      );
+
+
+    document.addEventListener(
+      "keydown",
+
+      (event) => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          document
+            .querySelectorAll(".modal")
+            .forEach(
+
+              (modal) => {
+
+                modal.classList.remove(
+                  "active"
+                );
+
+              }
+
+            );
+
+          document.body.style.overflow =
+            "";
+
+        }
+
+      }
+
+    );
+
+
+    /* =====================================================
+       FAQ ACCORDION
+    ===================================================== */
+
+    const faqItems =
+      document.querySelectorAll(
+        ".faq-item"
+      );
+
+
+    faqItems.forEach(
+      (item) => {
+
+        const question =
+          item.querySelector(
+            ".faq-question"
+          );
+
+        const answer =
+          item.querySelector(
+            ".faq-answer"
+          );
+
+
+        question.addEventListener(
+          "click",
+
+          () => {
+
+            const isOpen =
+              item.classList.contains(
+                "open"
+              );
+
+
+            faqItems.forEach(
+              (otherItem) => {
+
+                otherItem.classList.remove(
+                  "open"
+                );
+
+                otherItem
+                  .querySelector(
+                    ".faq-answer"
+                  )
+                  .style.maxHeight =
+                    null;
+
+              }
+            );
+
+
+            if (!isOpen) {
+
+              item.classList.add(
+                "open"
+              );
+
+              answer.style.maxHeight =
+                answer.scrollHeight +
+                "px";
+
+            }
+
+          }
+
+        );
+
+      }
+
+    );
+
+  </script>
+
+
+</body>
+
+</html>
