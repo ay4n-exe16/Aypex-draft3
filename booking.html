@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Booking — AYPEX.Co</title>
+
+  <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(255,255,255,0.95),
+          rgba(238,236,230,0.92) 45%,
+          #e5e2da 100%
+        );
+
+      color: #18191d;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.35;
+    }
+
+    .orb-one {
+      width: 320px;
+      height: 320px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,255,255,0.95),
+          rgba(190,190,190,0.08),
+          transparent 70%
+        );
+
+      top: -100px;
+      left: -100px;
+
+      animation: floatOne 9s ease-in-out infinite;
+    }
+
+    .orb-two {
+      width: 400px;
+      height: 400px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,255,255,0.8),
+          rgba(170,170,170,0.08),
+          transparent 70%
+        );
+
+      bottom: -170px;
+      right: -130px;
+
+      animation: floatTwo 11s ease-in-out infinite;
+    }
+
+    @keyframes floatOne {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(35px, 25px);
+      }
+    }
+
+    @keyframes floatTwo {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(-30px, -25px);
+      }
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: relative;
+      z-index: 10;
+
+      height: 100px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 6%;
+
+      border-bottom: 1px solid rgba(20,20,20,0.15);
+
+      background: rgba(238,236,230,0.55);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      letter-spacing: 5px;
+      font-weight: 600;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      position: relative;
+    }
+
+    /* Small AYPEX geometric mark */
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      width: 2px;
+      height: 30px;
+      background: #111827;
+      transform-origin: bottom;
+    }
+
+    .brand-mark::before {
+      left: 11px;
+      transform: rotate(26deg);
+    }
+
+    .brand-mark::after {
+      right: 11px;
+      transform: rotate(-26deg);
+    }
+
+    .brand-center {
+      position: absolute;
+      width: 2px;
+      height: 25px;
+      background: #111827;
+      bottom: 4px;
+      left: 19px;
+    }
+
+    .header-back {
+      font-family: monospace;
+      font-size: 14px;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
+
+    .header-back:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      position: relative;
+      z-index: 5;
+
+      min-height: calc(100vh - 100px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 70px 25px;
+    }
+
+
+    /* =========================
+       POPUP CARD
+    ========================= */
+
+    .booking-card {
+
+      position: relative;
+
+      width: min(650px, 100%);
+
+      padding: 65px 55px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.62),
+          rgba(255,255,255,0.25)
+        );
+
+      border: 1px solid rgba(255,255,255,0.8);
+
+      box-shadow:
+        0 30px 80px rgba(20,20,20,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.85);
+
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+
+      animation:
+        cardAppear 0.9s cubic-bezier(.16,1,.3,1) forwards;
+
+      transform: translateY(35px) scale(0.96);
+      opacity: 0;
+    }
+
+    @keyframes cardAppear {
+
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =========================
+       CARD GLOW
+    ========================= */
+
+    .booking-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: -2px;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          120deg,
+          transparent 20%,
+          rgba(255,255,255,0.8),
+          transparent 80%
+        );
+
+      opacity: 0.45;
+
+      z-index: -1;
+
+      animation: glassShine 5s ease-in-out infinite;
+    }
+
+    @keyframes glassShine {
+
+      0% {
+        transform: translateX(-70%);
+      }
+
+      50% {
+        transform: translateX(70%);
+      }
+
+      100% {
+        transform: translateX(-70%);
+      }
+
+    }
+
+
+    /* =========================
+       AYPEX SYMBOL
+    ========================= */
+
+    .logo-wrapper {
+
+      width: 115px;
+      height: 115px;
+
+      margin: 0 auto 35px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      animation:
+        logoFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+
+    }
+
+    .logo-ring {
+
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(15,23,42,0.13);
+
+      animation:
+        ringRotate 14s linear infinite;
+    }
+
+    .logo-ring::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      background: #111827;
+
+      border-radius: 50%;
+
+      top: -3px;
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
+
+    @keyframes ringRotate {
+
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+
+    /*
+      AYPEX geometric "A" symbol
+      Inspired by the uploaded reference,
+      recreated completely using CSS.
+    */
+
+    .apex-symbol {
+
+      width: 68px;
+      height: 72px;
+
+      position: relative;
+
+      animation:
+        symbolPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes symbolPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.04);
+      }
+    }
+
+    .apex-left,
+    .apex-right,
+    .apex-middle {
+
+      position: absolute;
+
+      bottom: 3px;
+
+      background: #111827;
+
+      transform-origin: bottom center;
+
+      border-radius: 2px;
+    }
+
+    .apex-left {
+
+      width: 6px;
+      height: 64px;
+
+      left: 12px;
+
+      transform: rotate(24deg);
+    }
+
+    .apex-right {
+
+      width: 6px;
+      height: 64px;
+
+      right: 12px;
+
+      transform: rotate(-24deg);
+    }
+
+    .apex-middle {
+
+      width: 5px;
+      height: 40px;
+
+      left: 31px;
+      bottom: 3px;
+    }
+
+    .apex-cut {
+
+      position: absolute;
+
+      width: 25px;
+      height: 5px;
+
+      background: #eeece6;
+
+      left: 22px;
+      bottom: 25px;
+
+      transform: rotate(0deg);
+    }
+
+
+    /* =========================
+       TEXT
+    ========================= */
+
+    .eyebrow {
+
+      font-family: monospace;
+
+      font-size: 13px;
+
+      letter-spacing: 5px;
+
+      color: #8d8b85;
+
+      margin-bottom: 22px;
+
+      text-transform: uppercase;
+    }
+
+    .booking-card h1 {
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(42px, 7vw, 67px);
+
+      font-weight: 400;
+
+      line-height: 1.05;
+
+      letter-spacing: -1.5px;
+
+      margin-bottom: 25px;
+    }
+
+    .booking-card h1 span {
+      font-style: italic;
+    }
+
+    .message {
+
+      max-width: 480px;
+
+      margin: 0 auto;
+
+      font-size: 18px;
+
+      line-height: 1.7;
+
+      color: #505050;
+    }
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-top: 35px;
+
+      padding: 11px 17px;
+
+      border: 1px solid rgba(20,20,20,0.16);
+
+      background: rgba(255,255,255,0.32);
+
+      font-family: monospace;
+
+      font-size: 12px;
+
+      letter-spacing: 1px;
+    }
+
+    .status-dot {
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #555;
+
+      animation:
+        statusPulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes statusPulse {
+
+      0%,
+      100% {
+        opacity: 0.35;
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .navigation {
+
+      margin-top: 42px;
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 15px;
+
+      flex-wrap: wrap;
+    }
+
+    .nav-button {
+
+      padding: 15px 23px;
+
+      border: 1px solid #202020;
+
+      font-family: monospace;
+
+      font-size: 14px;
+
+      letter-spacing: 0.5px;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .nav-button:hover {
+
+      background: #202020;
+
+      color: #eeece6;
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      position: relative;
+
+      z-index: 10;
+
+      text-align: center;
+
+      padding: 25px;
+
+      font-family: monospace;
+
+      font-size: 11px;
+
+      letter-spacing: 1.5px;
+
+      color: #88857e;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 650px) {
+
+      header {
+        height: 82px;
+        padding: 0 7%;
+      }
+
+      .brand-name {
+        font-size: 23px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .header-back {
+        display: none;
+      }
+
+      main {
+        min-height: calc(100vh - 82px);
+
+        padding:
+          45px
+          18px
+          30px;
+      }
+
+      .booking-card {
+
+        padding:
+          50px
+          25px
+          45px;
+      }
+
+      .logo-wrapper {
+
+        width: 100px;
+        height: 100px;
+
+        margin-bottom: 30px;
+      }
+
+      .apex-symbol {
+        transform: scale(0.9);
+      }
+
+      .booking-card h1 {
+
+        font-size: 45px;
+
+        letter-spacing: -1px;
+      }
+
+      .message {
+        font-size: 16px;
+      }
+
+      .navigation {
+
+        flex-direction: column;
+
+        width: 100%;
+      }
+
+      .nav-button {
+
+        width: 100%;
+
+        text-align: center;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       BACKGROUND
+  ========================== -->
+
+  <div class="background">
+
+    <div class="orb orb-one"></div>
+
+    <div class="orb orb-two"></div>
+
+  </div>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <a href="index.html" class="brand">
+
+      <div class="brand-mark">
+        <div class="brand-center"></div>
+      </div>
+
+      <div class="brand-name">
+        AYPEX
+      </div>
+
+    </a>
+
+    <a href="founder.html" class="header-back">
+      Founder’s Desk →
+    </a>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN BOOKING NOTICE
+  ========================== -->
+
+  <main>
+
+    <div class="booking-card">
+
+
+      <!-- AYPEX SYMBOL -->
+
+      <div class="logo-wrapper">
+
+        <div class="logo-ring"></div>
+
+        <div class="apex-symbol">
+
+          <div class="apex-left"></div>
+
+          <div class="apex-right"></div>
+
+          <div class="apex-middle"></div>
+
+          <div class="apex-cut"></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TEXT -->
+
+      <div class="eyebrow">
+        Booking System
+      </div>
+
+
+      <h1>
+        Coming <span>soon.</span>
+      </h1>
+
+
+      <p class="message">
+        The booking system will be available soon.
+        Stay tuned for more updates.
+      </p>
+
+
+      <!-- STATUS -->
+
+      <div class="status">
+
+        <span class="status-dot"></span>
+
+        SYSTEM IN DEVELOPMENT
+
+      </div>
+
+
+      <!-- NAVIGATION -->
+
+      <div class="navigation">
+
+        <a
+          href="index.html"
+          class="nav-button">
+          ← Back to AYPEX
+        </a>
+
+        <a
+          href="founder.html"
+          class="nav-button">
+          Founder’s Desk →
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    AYPEX.CO &nbsp;•&nbsp;
+    BUILD. GROW. CONNECT.
+
+  </footer>
+
+
+</body>
+</html>
