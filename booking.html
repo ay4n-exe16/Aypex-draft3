@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Booking — AYPEX.Co</title>
+  <title>Booking System — AYPEX.Co</title>
 
   <style>
 
-    /* =========================
+    /* =========================================
        RESET
-    ========================= */
+    ========================================= */
 
     * {
       margin: 0;
@@ -18,361 +18,693 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: #f4f8ff;
+
       background:
         radial-gradient(
-          circle at 50% 35%,
-          rgba(255,255,255,0.95),
-          rgba(238,236,230,0.92) 45%,
-          #e5e2da 100%
+          circle at 15% 15%,
+          rgba(54, 215, 255, 0.12),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 85% 80%,
+          rgba(91, 76, 255, 0.14),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #050d18,
+          #081421 55%,
+          #070c18
         );
 
-      color: #18191d;
       overflow-x: hidden;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
 
+    /* =========================================
+       AMBIENT BACKGROUND
+    ========================================= */
 
-    /* =========================
-       BACKGROUND
-    ========================= */
-
-    .background {
+    .ambient {
       position: fixed;
       inset: 0;
-      overflow: hidden;
+
       pointer-events: none;
+
+      overflow: hidden;
+
       z-index: 0;
     }
 
+
     .orb {
       position: absolute;
+
       border-radius: 50%;
-      filter: blur(2px);
-      opacity: 0.35;
+
+      filter: blur(90px);
+
+      opacity: 0.18;
     }
+
 
     .orb-one {
-      width: 320px;
-      height: 320px;
+      width: 420px;
+      height: 420px;
 
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,255,255,0.95),
-          rgba(190,190,190,0.08),
-          transparent 70%
-        );
+      background: #32d9ff;
 
-      top: -100px;
-      left: -100px;
+      top: -170px;
+      left: -120px;
 
-      animation: floatOne 9s ease-in-out infinite;
+      animation:
+        orbOne 10s ease-in-out infinite alternate;
     }
+
 
     .orb-two {
-      width: 400px;
-      height: 400px;
+      width: 500px;
+      height: 500px;
 
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,255,255,0.8),
-          rgba(170,170,170,0.08),
-          transparent 70%
-        );
+      background: #625cff;
 
-      bottom: -170px;
-      right: -130px;
+      right: -220px;
+      bottom: -230px;
 
-      animation: floatTwo 11s ease-in-out infinite;
+      animation:
+        orbTwo 12s ease-in-out infinite alternate;
     }
 
-    @keyframes floatOne {
 
-      0%,
-      100% {
+    @keyframes orbOne {
+
+      from {
         transform: translate(0, 0);
       }
 
-      50% {
-        transform: translate(35px, 25px);
+      to {
+        transform: translate(100px, 80px);
       }
+
     }
 
-    @keyframes floatTwo {
 
-      0%,
-      100% {
+    @keyframes orbTwo {
+
+      from {
         transform: translate(0, 0);
       }
 
-      50% {
-        transform: translate(-30px, -25px);
+      to {
+        transform: translate(-80px, -70px);
       }
+
     }
 
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* =========================================
+       FLOATING PARTICLES
+    ========================================= */
+
+    .particle {
+      position: absolute;
+
+      width: 3px;
+      height: 3px;
+
+      border-radius: 50%;
+
+      background: #54ddff;
+
+      opacity: 0;
+
+      animation:
+        particleMove 8s linear infinite;
+    }
+
+
+    .particle:nth-child(3) {
+      left: 12%;
+      top: 65%;
+      animation-delay: 1s;
+    }
+
+
+    .particle:nth-child(4) {
+      left: 30%;
+      top: 30%;
+      animation-delay: 3s;
+    }
+
+
+    .particle:nth-child(5) {
+      left: 73%;
+      top: 22%;
+      animation-delay: 2s;
+    }
+
+
+    .particle:nth-child(6) {
+      left: 86%;
+      top: 65%;
+      animation-delay: 5s;
+    }
+
+
+    @keyframes particleMove {
+
+      0% {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      30% {
+        opacity: 0.5;
+      }
+
+      70% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+
+    }
+
+
+    /* =========================================
+       NAVBAR
+    ========================================= */
 
     header {
-      position: relative;
-      z-index: 10;
 
-      height: 100px;
+      position: relative;
+
+      z-index: 20;
+
+      width: calc(100% - 66px);
+
+      max-width: 1250px;
+
+      height: 76px;
+
+      margin: 28px auto 0;
+
+      padding: 0 23px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
-      padding: 0 6%;
+      border: 1px solid rgba(92, 215, 255, 0.24);
 
-      border-bottom: 1px solid rgba(20,20,20,0.15);
+      border-radius: 45px;
 
-      background: rgba(238,236,230,0.55);
+      background:
+        rgba(7, 18, 31, 0.58);
 
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
+
+      -webkit-backdrop-filter: blur(20px);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 18px 50px rgba(0,0,0,0.25);
+
     }
+
+
+    /* =========================================
+       AYPEX LOGO
+    ========================================= */
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .brand-name {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      letter-spacing: 5px;
-      font-weight: 600;
-    }
-
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      position: relative;
-    }
-
-    /* Small AYPEX geometric mark */
-
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      bottom: 4px;
-      width: 2px;
-      height: 30px;
-      background: #111827;
-      transform-origin: bottom;
-    }
-
-    .brand-mark::before {
-      left: 11px;
-      transform: rotate(26deg);
-    }
-
-    .brand-mark::after {
-      right: 11px;
-      transform: rotate(-26deg);
-    }
-
-    .brand-center {
-      position: absolute;
-      width: 2px;
-      height: 25px;
-      background: #111827;
-      bottom: 4px;
-      left: 19px;
-    }
-
-    .header-back {
-      font-family: monospace;
-      font-size: 14px;
-      letter-spacing: 1px;
-      opacity: 0.8;
-    }
-
-    .header-back:hover {
-      opacity: 1;
-      text-decoration: underline;
-    }
-
-
-    /* =========================
-       MAIN
-    ========================= */
-
-    main {
-      position: relative;
-      z-index: 5;
-
-      min-height: calc(100vh - 100px);
 
       display: flex;
+
       align-items: center;
+
+      gap: 15px;
+
+      text-decoration: none;
+
+      color: #f5f9ff;
+
+    }
+
+
+    .logo {
+
+      width: 43px;
+      height: 43px;
+
+      border: 1.5px solid #52ddff;
+
+      border-radius: 50%;
+
+      position: relative;
+
+      display: flex;
+
       justify-content: center;
 
-      padding: 70px 25px;
+      align-items: center;
+
+      box-shadow:
+        0 0 18px rgba(73, 219, 255, 0.16),
+        inset 0 0 15px rgba(73, 219, 255, 0.07);
+
     }
 
 
-    /* =========================
-       POPUP CARD
-    ========================= */
+    /*
+      Stylized AYPEX A symbol
+    */
+
+    .logo-a {
+
+      width: 18px;
+      height: 24px;
+
+      position: relative;
+
+      transform: skew(-13deg);
+
+    }
+
+
+    .logo-a::before,
+    .logo-a::after {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      width: 3px;
+
+      height: 25px;
+
+      background: #55ddff;
+
+      border-radius: 3px;
+
+    }
+
+
+    .logo-a::before {
+
+      left: 3px;
+
+      transform: rotate(23deg);
+
+    }
+
+
+    .logo-a::after {
+
+      right: 3px;
+
+      transform: rotate(-23deg);
+
+    }
+
+
+    .logo-a span {
+
+      position: absolute;
+
+      width: 11px;
+      height: 3px;
+
+      background: #55ddff;
+
+      left: 3px;
+      top: 14px;
+
+      transform: rotate(-13deg);
+
+      box-shadow:
+        0 0 8px rgba(85, 221, 255, 0.7);
+
+    }
+
+
+    .brand-name {
+
+      font-size: 19px;
+
+      font-weight: 700;
+
+      letter-spacing: 5px;
+
+    }
+
+
+    .brand-name span {
+
+      color: #50dcff;
+
+    }
+
+
+    .menu {
+
+      width: 34px;
+
+      height: 28px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      gap: 7px;
+
+      cursor: pointer;
+
+    }
+
+
+    .menu span {
+
+      display: block;
+
+      width: 28px;
+
+      height: 2px;
+
+      background: #d9eaff;
+
+      border-radius: 3px;
+
+    }
+
+
+    /* =========================================
+       MAIN
+    ========================================= */
+
+    main {
+
+      position: relative;
+
+      z-index: 5;
+
+      min-height:
+        calc(100vh - 104px);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 45px 25px 70px;
+
+    }
+
+
+    /* =========================================
+       GLASS CARD
+    ========================================= */
 
     .booking-card {
 
       position: relative;
 
-      width: min(650px, 100%);
+      width: min(720px, 100%);
 
-      padding: 65px 55px;
+      padding:
+        70px
+        55px
+        60px;
 
       text-align: center;
 
+      overflow: hidden;
+
+      border-radius: 32px;
+
+      border: 1px solid rgba(74, 215, 255, 0.30);
+
       background:
         linear-gradient(
-          135deg,
-          rgba(255,255,255,0.62),
-          rgba(255,255,255,0.25)
+          145deg,
+          rgba(35, 91, 116, 0.20),
+          rgba(7, 18, 31, 0.70)
         );
 
-      border: 1px solid rgba(255,255,255,0.8);
+      backdrop-filter: blur(26px);
+
+      -webkit-backdrop-filter: blur(26px);
 
       box-shadow:
-        0 30px 80px rgba(20,20,20,0.12),
-        inset 0 1px 0 rgba(255,255,255,0.85);
 
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+        0 40px 100px
+        rgba(0,0,0,0.42),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.08);
 
       animation:
-        cardAppear 0.9s cubic-bezier(.16,1,.3,1) forwards;
+        cardAppear 1s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
 
-      transform: translateY(35px) scale(0.96);
-      opacity: 0;
     }
+
 
     @keyframes cardAppear {
 
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(45px)
+          scale(0.94);
+
+        filter: blur(8px);
+
+      }
+
       to {
-        transform: translateY(0) scale(1);
+
         opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+
+        filter: blur(0);
+
       }
 
     }
 
 
-    /* =========================
-       CARD GLOW
-    ========================= */
+    /* =========================================
+       DIAGONAL GLASS LINE
+    ========================================= */
 
-    .booking-card::before {
+    .diagonal {
+
+      position: absolute;
+
+      width: 850px;
+
+      height: 1px;
+
+      top: 48%;
+      left: -80px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(88, 218, 255, 0.20),
+          rgba(117, 102, 255, 0.25),
+          transparent
+        );
+
+      transform: rotate(-57deg);
+
+      pointer-events: none;
+
+    }
+
+
+    /* =========================================
+       CORNER DETAILS
+    ========================================= */
+
+    .corner {
+
+      position: absolute;
+
+      width: 25px;
+      height: 25px;
+
+      border-color:
+        rgba(79, 218, 255, 0.45);
+
+      border-style: solid;
+
+    }
+
+
+    .corner.tl {
+
+      top: 21px;
+      left: 21px;
+
+      border-width:
+        1px
+        0
+        0
+        1px;
+
+    }
+
+
+    .corner.tr {
+
+      top: 21px;
+      right: 21px;
+
+      border-width:
+        1px
+        1px
+        0
+        0;
+
+    }
+
+
+    .corner.bl {
+
+      bottom: 21px;
+      left: 21px;
+
+      border-width:
+        0
+        0
+        1px
+        1px;
+
+    }
+
+
+    .corner.br {
+
+      bottom: 21px;
+      right: 21px;
+
+      border-width:
+        0
+        1px
+        1px
+        0;
+
+    }
+
+
+    /* =========================================
+       CENTER AYPEX SYMBOL
+    ========================================= */
+
+    .symbol-wrap {
+
+      position: relative;
+
+      width: 110px;
+      height: 110px;
+
+      margin:
+        0 auto
+        35px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        rgba(82, 219, 255, 0.40);
+
+      box-shadow:
+        0 0 30px
+        rgba(60, 215, 255, 0.12),
+
+        inset 0 0 30px
+        rgba(60, 215, 255, 0.07);
+
+      animation:
+        symbolPulse 3s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    /*
+      Orbit ring
+    */
+
+    .symbol-wrap::before {
 
       content: "";
 
       position: absolute;
 
-      inset: -2px;
-
-      border-radius: inherit;
-
-      background:
-        linear-gradient(
-          120deg,
-          transparent 20%,
-          rgba(255,255,255,0.8),
-          transparent 80%
-        );
-
-      opacity: 0.45;
-
-      z-index: -1;
-
-      animation: glassShine 5s ease-in-out infinite;
-    }
-
-    @keyframes glassShine {
-
-      0% {
-        transform: translateX(-70%);
-      }
-
-      50% {
-        transform: translateX(70%);
-      }
-
-      100% {
-        transform: translateX(-70%);
-      }
-
-    }
-
-
-    /* =========================
-       AYPEX SYMBOL
-    ========================= */
-
-    .logo-wrapper {
-
-      width: 115px;
-      height: 115px;
-
-      margin: 0 auto 35px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      position: relative;
-
-      animation:
-        logoFloat 4s ease-in-out infinite;
-    }
-
-    @keyframes logoFloat {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-8px);
-      }
-
-    }
-
-    .logo-ring {
-
-      position: absolute;
-
-      width: 100%;
-      height: 100%;
+      inset: -10px;
 
       border-radius: 50%;
 
-      border: 1px solid rgba(15,23,42,0.13);
+      border:
+        1px solid
+        rgba(76, 215, 255, 0.10);
+
+      border-top-color:
+        rgba(76, 215, 255, 0.70);
 
       animation:
-        ringRotate 14s linear infinite;
+        orbit 5s
+        linear
+        infinite;
+
     }
 
-    .logo-ring::before {
+
+    /*
+      Orbit dot
+    */
+
+    .symbol-wrap::after {
 
       content: "";
 
@@ -381,123 +713,165 @@
       width: 7px;
       height: 7px;
 
-      background: #111827;
-
       border-radius: 50%;
 
-      top: -3px;
+      background: #55ddff;
+
+      top: 4px;
+
       left: 50%;
 
       transform: translateX(-50%);
-    }
 
-    @keyframes ringRotate {
-
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-
-    }
-
-
-    /*
-      AYPEX geometric "A" symbol
-      Inspired by the uploaded reference,
-      recreated completely using CSS.
-    */
-
-    .apex-symbol {
-
-      width: 68px;
-      height: 72px;
-
-      position: relative;
+      box-shadow:
+        0 0 12px #55ddff;
 
       animation:
-        symbolPulse 4s ease-in-out infinite;
+        orbit 5s
+        linear
+        infinite;
+
     }
+
+
+    @keyframes orbit {
+
+      to {
+        transform:
+          rotate(360deg);
+      }
+
+    }
+
 
     @keyframes symbolPulse {
 
       0%,
       100% {
+
         transform: scale(1);
+
+        box-shadow:
+          0 0 30px
+          rgba(60,215,255,0.12),
+
+          inset 0 0 30px
+          rgba(60,215,255,0.07);
+
       }
 
       50% {
-        transform: scale(1.04);
+
+        transform: scale(1.05);
+
+        box-shadow:
+          0 0 45px
+          rgba(60,215,255,0.22),
+
+          inset 0 0 35px
+          rgba(60,215,255,0.12);
+
       }
+
     }
 
-    .apex-left,
-    .apex-right,
-    .apex-middle {
+
+    /* =========================================
+       SYMBOL
+    ========================================= */
+
+    .big-a {
+
+      position: relative;
+
+      width: 40px;
+      height: 53px;
+
+      transform: skew(-12deg);
+
+    }
+
+
+    .big-a::before,
+    .big-a::after {
+
+      content: "";
 
       position: absolute;
 
-      bottom: 3px;
-
-      background: #111827;
-
-      transform-origin: bottom center;
-
-      border-radius: 2px;
-    }
-
-    .apex-left {
+      top: 0;
 
       width: 6px;
-      height: 64px;
 
-      left: 12px;
+      height: 53px;
 
-      transform: rotate(24deg);
+      border-radius: 6px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #7be8ff,
+          #36c9f5
+        );
+
+      box-shadow:
+        0 0 12px
+        rgba(73,220,255,0.35);
+
     }
 
-    .apex-right {
 
-      width: 6px;
-      height: 64px;
+    .big-a::before {
 
-      right: 12px;
+      left: 5px;
 
-      transform: rotate(-24deg);
+      transform:
+        rotate(24deg);
+
     }
 
-    .apex-middle {
 
-      width: 5px;
-      height: 40px;
+    .big-a::after {
 
-      left: 31px;
-      bottom: 3px;
+      right: 5px;
+
+      transform:
+        rotate(-24deg);
+
     }
 
-    .apex-cut {
+
+    .big-a span {
 
       position: absolute;
 
-      width: 25px;
-      height: 5px;
+      width: 26px;
+      height: 6px;
 
-      background: #eeece6;
+      left: 7px;
+      top: 31px;
 
-      left: 22px;
-      bottom: 25px;
+      background: #55ddff;
 
-      transform: rotate(0deg);
+      transform:
+        rotate(-12deg);
+
+      border-radius: 5px;
+
     }
 
 
-    /* =========================
+    /* =========================================
        TEXT
-    ========================= */
+    ========================================= */
 
     .eyebrow {
+
+      position: relative;
+
+      z-index: 2;
+
+      color: #61ddff;
 
       font-family: monospace;
 
@@ -505,251 +879,448 @@
 
       letter-spacing: 5px;
 
-      color: #8d8b85;
-
-      margin-bottom: 22px;
+      margin-bottom: 24px;
 
       text-transform: uppercase;
+
+      animation:
+        fadeUp 0.9s
+        0.2s
+        both;
+
     }
 
-    .booking-card h1 {
+
+    h1 {
+
+      position: relative;
+
+      z-index: 2;
 
       font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-      font-size:
-        clamp(42px, 7vw, 67px);
-
       font-weight: 400;
 
-      line-height: 1.05;
+      font-size:
+        clamp(48px, 8vw, 76px);
 
-      letter-spacing: -1.5px;
+      line-height: 0.98;
 
-      margin-bottom: 25px;
+      letter-spacing: -3px;
+
+      margin-bottom: 30px;
+
+      animation:
+        fadeUp 0.9s
+        0.35s
+        both;
+
     }
 
-    .booking-card h1 span {
+
+    h1 span {
+
+      color: #58dcff;
+
       font-style: italic;
+
     }
+
 
     .message {
 
-      max-width: 480px;
+      position: relative;
 
-      margin: 0 auto;
+      z-index: 2;
+
+      max-width: 570px;
+
+      margin: auto;
+
+      color: #aebed1;
 
       font-size: 18px;
 
-      line-height: 1.7;
+      line-height: 1.75;
 
-      color: #505050;
+      animation:
+        fadeUp 0.9s
+        0.5s
+        both;
+
     }
 
 
-    /* =========================
+    @keyframes fadeUp {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(20px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+      }
+
+    }
+
+
+    /* =========================================
        STATUS
-    ========================= */
+    ========================================= */
 
     .status {
+
+      position: relative;
+
+      z-index: 2;
 
       display: inline-flex;
 
       align-items: center;
 
-      gap: 10px;
+      gap: 11px;
 
-      margin-top: 35px;
+      margin-top: 38px;
 
-      padding: 11px 17px;
+      padding:
+        13px
+        21px;
 
-      border: 1px solid rgba(20,20,20,0.16);
+      border-radius: 30px;
 
-      background: rgba(255,255,255,0.32);
+      border:
+        1px solid
+        rgba(83, 219, 255, 0.23);
+
+      background:
+        rgba(54, 211, 255, 0.055);
+
+      color: #c7edfa;
 
       font-family: monospace;
 
       font-size: 12px;
 
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+
+      animation:
+        fadeUp 0.9s
+        0.65s
+        both;
+
     }
+
 
     .status-dot {
 
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
 
       border-radius: 50%;
 
-      background: #555;
+      background: #51dcff;
+
+      box-shadow:
+        0 0 10px
+        #51dcff;
 
       animation:
-        statusPulse 1.8s ease-in-out infinite;
+        statusPulse 1.5s
+        ease-in-out
+        infinite;
+
     }
+
 
     @keyframes statusPulse {
 
       0%,
       100% {
-        opacity: 0.35;
-        transform: scale(0.8);
+
+        opacity: 1;
+
+        transform:
+          scale(1);
+
       }
 
       50% {
-        opacity: 1;
-        transform: scale(1.2);
+
+        opacity: 0.35;
+
+        transform:
+          scale(0.7);
+
       }
 
     }
 
 
-    /* =========================
-       NAVIGATION
-    ========================= */
+    /* =========================================
+       NAVIGATION BUTTONS
+    ========================================= */
 
     .navigation {
 
-      margin-top: 42px;
+      position: relative;
 
-      display: flex;
+      z-index: 2;
 
-      justify-content: center;
+      margin-top: 45px;
 
-      gap: 15px;
+      display: grid;
 
-      flex-wrap: wrap;
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 14px;
+
+      animation:
+        fadeUp 0.9s
+        0.8s
+        both;
+
     }
+
 
     .nav-button {
 
-      padding: 15px 23px;
+      min-height: 58px;
 
-      border: 1px solid #202020;
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 15px 20px;
+
+      border-radius: 10px;
+
+      border:
+        1px solid
+        rgba(105, 218, 255, 0.25);
+
+      background:
+        rgba(9, 23, 37, 0.38);
+
+      color: #dcefff;
+
+      text-decoration: none;
 
       font-family: monospace;
 
       font-size: 14px;
 
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
 
       transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+        0.25s ease;
+
+      backdrop-filter:
+        blur(10px);
+
     }
+
 
     .nav-button:hover {
 
-      background: #202020;
+      transform:
+        translateY(-3px);
 
-      color: #eeece6;
+      border-color:
+        rgba(84, 222, 255, 0.75);
 
-      transform: translateY(-2px);
+      color: #59ddff;
+
+      background:
+        rgba(60, 210, 255, 0.07);
+
+      box-shadow:
+        0 10px 30px
+        rgba(40, 205, 255, 0.10);
+
     }
 
 
-    /* =========================
-       FOOTER
-    ========================= */
+    .nav-button.primary {
 
-    footer {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(52, 207, 255, 0.13),
+          rgba(94, 85, 255, 0.12)
+        );
 
-      position: relative;
-
-      z-index: 10;
-
-      text-align: center;
-
-      padding: 25px;
-
-      font-family: monospace;
-
-      font-size: 11px;
-
-      letter-spacing: 1.5px;
-
-      color: #88857e;
     }
 
 
-    /* =========================
+    /* =========================================
        MOBILE
-    ========================= */
+    ========================================= */
 
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
 
       header {
-        height: 82px;
-        padding: 0 7%;
-      }
 
-      .brand-name {
-        font-size: 23px;
-      }
+        width:
+          calc(100% - 30px);
 
-      .brand-mark {
-        width: 34px;
-        height: 34px;
-      }
+        height: 66px;
 
-      .header-back {
-        display: none;
-      }
-
-      main {
-        min-height: calc(100vh - 82px);
+        margin-top: 15px;
 
         padding:
-          45px
-          18px
-          30px;
+          0 17px;
+
       }
+
+
+      .logo {
+
+        width: 36px;
+        height: 36px;
+
+      }
+
+
+      .brand-name {
+
+        font-size: 16px;
+
+        letter-spacing: 4px;
+
+      }
+
+
+      .menu {
+
+        width: 30px;
+
+      }
+
+
+      .menu span {
+
+        width: 25px;
+
+      }
+
+
+      main {
+
+        min-height:
+          calc(100vh - 81px);
+
+        padding:
+          20px 15px 35px;
+
+      }
+
 
       .booking-card {
 
         padding:
-          50px
-          25px
-          45px;
+          55px 23px 35px;
+
+        border-radius: 27px;
+
       }
 
-      .logo-wrapper {
 
-        width: 100px;
-        height: 100px;
+      .symbol-wrap {
 
-        margin-bottom: 30px;
+        width: 88px;
+        height: 88px;
+
+        margin-bottom: 29px;
+
       }
 
-      .apex-symbol {
-        transform: scale(0.9);
+
+      .big-a {
+
+        transform:
+          scale(0.78)
+          skew(-12deg);
+
       }
 
-      .booking-card h1 {
 
-        font-size: 45px;
+      .eyebrow {
 
-        letter-spacing: -1px;
+        font-size: 11px;
+
+        letter-spacing: 4px;
+
       }
+
+
+      h1 {
+
+        font-size: 48px;
+
+        letter-spacing: -2px;
+
+      }
+
 
       .message {
+
         font-size: 16px;
+
+        line-height: 1.65;
+
       }
+
+
+      .status {
+
+        font-size: 10px;
+
+        letter-spacing: 1.4px;
+
+        padding:
+          11px 15px;
+
+      }
+
 
       .navigation {
 
-        flex-direction: column;
+        grid-template-columns: 1fr;
 
-        width: 100%;
+        margin-top: 34px;
+
       }
+
 
       .nav-button {
 
-        width: 100%;
+        min-height: 55px;
 
-        text-align: center;
+      }
+
+
+      .corner {
+
+        width: 19px;
+        height: 19px;
+
       }
 
     }
@@ -761,93 +1332,138 @@
 <body>
 
 
-  <!-- =========================
+  <!-- =====================================
        BACKGROUND
-  ========================== -->
+  ====================================== -->
 
-  <div class="background">
+  <div class="ambient">
 
     <div class="orb orb-one"></div>
 
     <div class="orb orb-two"></div>
 
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
   </div>
 
 
-  <!-- =========================
+
+  <!-- =====================================
        HEADER
-  ========================== -->
+  ====================================== -->
 
   <header>
 
-    <a href="index.html" class="brand">
+    <a
+      href="index.html"
+      class="brand"
+    >
 
-      <div class="brand-mark">
-        <div class="brand-center"></div>
+      <div class="logo">
+
+        <div class="logo-a">
+          <span></span>
+        </div>
+
       </div>
+
 
       <div class="brand-name">
-        AYPEX
+
+        AYPEX <span>.CO</span>
+
       </div>
 
     </a>
 
-    <a href="founder.html" class="header-back">
-      Founder’s Desk →
-    </a>
+
+    <div class="menu">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
 
   </header>
 
 
-  <!-- =========================
-       MAIN BOOKING NOTICE
-  ========================== -->
+
+  <!-- =====================================
+       MAIN
+  ====================================== -->
 
   <main>
 
-    <div class="booking-card">
+
+    <section class="booking-card">
 
 
-      <!-- AYPEX SYMBOL -->
+      <!-- Corner accents -->
 
-      <div class="logo-wrapper">
+      <div class="corner tl"></div>
+      <div class="corner tr"></div>
+      <div class="corner bl"></div>
+      <div class="corner br"></div>
 
-        <div class="logo-ring"></div>
 
-        <div class="apex-symbol">
+      <!-- Diagonal glass line -->
 
-          <div class="apex-left"></div>
+      <div class="diagonal"></div>
 
-          <div class="apex-right"></div>
 
-          <div class="apex-middle"></div>
 
-          <div class="apex-cut"></div>
+      <!-- =================================
+           AYPEX SYMBOL
+      ================================== -->
+
+      <div class="symbol-wrap">
+
+        <div class="big-a">
+
+          <span></span>
 
         </div>
 
       </div>
 
 
-      <!-- TEXT -->
+
+      <!-- =================================
+           CONTENT
+      ================================== -->
 
       <div class="eyebrow">
-        Booking System
+
+        BOOKING SYSTEM
+
       </div>
 
 
       <h1>
+
         Coming <span>soon.</span>
+
       </h1>
 
 
       <p class="message">
+
         The booking system will be available soon.
+        <br>
+
         Stay tuned for more updates.
+
       </p>
 
 
-      <!-- STATUS -->
+
+      <!-- =================================
+           STATUS
+      ================================== -->
 
       <div class="status">
 
@@ -858,40 +1474,42 @@
       </div>
 
 
-      <!-- NAVIGATION -->
+
+      <!-- =================================
+           NAVIGATION
+      ================================== -->
 
       <div class="navigation">
 
+
         <a
           href="index.html"
-          class="nav-button">
+          class="nav-button"
+        >
+
           ← Back to AYPEX
+
         </a>
+
 
         <a
           href="founder.html"
-          class="nav-button">
+          class="nav-button primary"
+        >
+
           Founder’s Desk →
+
         </a>
+
 
       </div>
 
 
-    </div>
+    </section>
+
 
   </main>
 
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer>
-
-    AYPEX.CO &nbsp;•&nbsp;
-    BUILD. GROW. CONNECT.
-
-  </footer>
 
 
 </body>
